@@ -116,11 +116,16 @@ being asked.
 
 ## Open items
 
-- Only the authentication path has been exercised against the live API: an
-  invalid key returns the 401 envelope this package models. Request bodies and
-  response payloads still rest on the documentation alone. Run
-  `tools/smoke-test.php` with real credentials to close that gap; it is
-  read-only unless you pass `--send`. Credentials live in `.env`, which is
+- Reads are verified against the live API, writes are not. On 2026-09-13
+  `tools/smoke-test.php` passed all eight read calls with real credentials, and
+  `webhooks()->subscriptions()` and `webhooks()->events()` returned what
+  invalpool relies on. Templates, contacts, groups and opt-outs came back
+  empty on that account, so their row shape still rests on the documentation.
+  Sending and every other write, webhook management included, has only run
+  against msgpit. Close that with `--send` to your own number; do not test
+  webhook authentication on a shared account, because there is one
+  authentication method per account and it applies to production at once.
+  `docs/API-NOTES.md` records the details. Credentials live in `.env`, which is
   git-ignored, never in `.docksal/docksal.env`.
 - `docs/api/CONFLICTS.md` lists the places where the portal contradicts itself.
   Where prose and cURL sample disagree, this package follows the sample.

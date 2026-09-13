@@ -31,8 +31,33 @@ leading plus, and `send()` moved to `$client->messages()->send()`.
 
 ## What has been verified against the live API
 
-Not much, but not nothing. On 2026-08-22 a request with a deliberately invalid
-key returned:
+### Reads, with real credentials (2026-09-13)
+
+`tools/smoke-test.php` passed every call it makes: `GET /balance`, `/messages`,
+`/requests`, `/templates`, `/contacts/filter`, `/groups`, `/optouts` and
+`/webhooks/events`. Every response sat under `data`, which is what
+`AbstractResource` unwraps.
+
+- `/messages` and `/requests` returned rows. `/templates`, `/contacts/filter`,
+  `/groups` and `/optouts` returned none on that account, so the call is
+  confirmed but the row shape is not.
+- `/balance` returns its amounts as strings, not numbers:
+  `{"data":{"available":"115.82000","reserved":"0"}}`. Cast before comparing.
+- `/webhooks/events` lists six event ids without the `sms-` prefix the portal
+  uses: `message-delivered`, `message-failed`, `message-received`,
+  `inbound-opted-out`, `message-updated` and `schedule-updated`. Subscribe with
+  those.
+- `GET /webhooks/subscriptions` is not in the portal documentation but exists.
+  It returns the account's subscriptions under `data.events`, each with
+  `eventType`, `callbacks` and `requiresAuthentication`.
+
+Nothing that writes has run against the live API: sending, contacts, templates,
+schedules, and webhook subscriptions and authentication all rest on the
+documentation, plus msgpit for sending and webhooks.
+
+### Authentication (2026-08-22)
+
+A request with a deliberately invalid key returned:
 
 ```
 HTTP 401
@@ -45,9 +70,8 @@ The same 401 comes back from `/v2/messages`, `/v2/requests`, `/v2/templates`,
 
 That confirms the host, that those are all real authenticated routes rather than
 404s, and that the error envelope has exactly the shape modelled in `ApiError`.
-It says nothing about request bodies or response payloads, which still rest on
-the documentation alone. `tools/smoke-test.php` covers the rest once you have a
-key.
+It says nothing about request bodies or response payloads; the reads above
+cover part of that.
 
 ## Base URL
 

@@ -334,7 +334,10 @@ of the recipient.
 ## Balance
 
 ```php
-$client->balance()->get();
+$balance = $client->balance()->get();
+
+// The API returns the amounts as strings, e.g. "115.82000"
+$available = (float) $balance['available'];
 
 $client->balance()->createAlert(
     threshold:      100.0,
