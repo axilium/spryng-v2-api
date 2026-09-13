@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests\Dto;
+namespace Axilium\SpryngV2\Tests\Dto;
 
-use Acme\SpryngMessaging\Dto\Recipient;
+use Axilium\SpryngV2\Dto\Recipient;
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;

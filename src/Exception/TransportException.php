@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Exception;
+namespace Axilium\SpryngV2\Exception;
 
 /**
  * The request never reached Spryng: DNS failure, TLS problem, timeout.

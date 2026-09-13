@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Exception;
+namespace Axilium\SpryngV2\Exception;
 
 /**
  * HTTP 401 or 403. The API key is missing, expired, revoked, or not allowed on

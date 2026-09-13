@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Resource;
+namespace Axilium\SpryngV2\Resource;
 
-use Acme\SpryngMessaging\Dto\Collection;
-use Acme\SpryngMessaging\SpryngClient;
+use Axilium\SpryngV2\Dto\Collection;
+use Axilium\SpryngV2\SpryngClient;
 
 /**
  * Shared plumbing for the resource groups. Each subclass maps one section of

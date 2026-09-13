@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Exception;
+namespace Axilium\SpryngV2\Exception;
 
 /**
  * HTTP 400. The request was understood but rejected: a missing required field,

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tools;
+namespace Axilium\SpryngV2\Tools;
 
-use Acme\SpryngMessaging\Dto\Message;
-use Acme\SpryngMessaging\Exception\ApiException;
-use Acme\SpryngMessaging\Exception\SpryngException;
-use Acme\SpryngMessaging\Exception\TransportException;
-use Acme\SpryngMessaging\SpryngClient;
+use Axilium\SpryngV2\Dto\Message;
+use Axilium\SpryngV2\Exception\ApiException;
+use Axilium\SpryngV2\Exception\SpryngException;
+use Axilium\SpryngV2\Exception\TransportException;
+use Axilium\SpryngV2\SpryngClient;
 use Throwable;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
@@ -164,6 +164,7 @@ if (isset($options['help'])) {
 
       SPRYNG_API_KEY             required
       SPRYNG_ACCOUNT_REFERENCE   required, e.g. SPNL0000000
+      SPRYNG_BASE_URL            optional, e.g. http://msgpit:8080/spryng/v2
       SPRYNG_SMOKE_TO            optional, same as --send
       SPRYNG_SMOKE_FROM          optional, same as --from
 

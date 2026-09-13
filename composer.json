@@ -1,5 +1,5 @@
 {
-    "name": "acme/spryng-messaging",
+    "name": "axilium/spryng-v2-api",
     "description": "Zero-dependency PHP client for the Spryng Messaging v2 API",
     "type": "library",
     "license": "MIT",
@@ -11,8 +11,8 @@
     ],
     "authors": [
         {
-            "name": "Raymond",
-            "email": "raymond@example.com"
+            "name": "Raymond Steffann",
+            "email": "raymond@axilium.com"
         }
     ],
     "require": {
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Acme\\SpryngMessaging\\": "src/"
+            "Axilium\\SpryngV2\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Acme\\SpryngMessaging\\Tests\\": "tests/"
+            "Axilium\\SpryngV2\\Tests\\": "tests/"
         }
     },
     "archive": {

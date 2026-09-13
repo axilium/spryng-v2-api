@@ -2,22 +2,34 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests;
+namespace Axilium\SpryngV2\Tests;
 
-use Acme\SpryngMessaging\Exception\ApiException;
-use Acme\SpryngMessaging\Exception\AuthenticationException;
-use Acme\SpryngMessaging\Exception\ConflictException;
-use Acme\SpryngMessaging\Exception\NotFoundException;
-use Acme\SpryngMessaging\Exception\RateLimitException;
-use Acme\SpryngMessaging\Exception\ValidationException;
-use Acme\SpryngMessaging\SpryngClient;
-use Acme\SpryngMessaging\Tests\Double\FakeTransport;
+use Axilium\SpryngV2\Exception\ApiException;
+use Axilium\SpryngV2\Exception\AuthenticationException;
+use Axilium\SpryngV2\Exception\ConflictException;
+use Axilium\SpryngV2\Exception\NotFoundException;
+use Axilium\SpryngV2\Exception\RateLimitException;
+use Axilium\SpryngV2\Exception\ValidationException;
+use Axilium\SpryngV2\SpryngClient;
+use Axilium\SpryngV2\Tests\Double\FakeTransport;
 use InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class SpryngClientTest extends TestCase
 {
+    private const ENVIRONMENT = ['SPRYNG_API_KEY', 'SPRYNG_ACCOUNT_REFERENCE', 'SPRYNG_BASE_URL'];
+
+    protected function setUp(): void
+    {
+        $this->clearEnvironment();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->clearEnvironment();
+    }
+
     public function testItRejectsAnEmptyApiKey(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -35,7 +47,7 @@ final class SpryngClientTest extends TestCase
         self::assertSame('SPNL0000000', $transport->lastHeaders['AccountReference']);
         self::assertSame('application/json', $transport->lastHeaders['Accept']);
         self::assertArrayNotHasKey('Authorization', $transport->lastHeaders);
-        self::assertStringStartsWith('acme-spryng-messaging/', $transport->lastHeaders['User-Agent']);
+        self::assertStringStartsWith('axilium-spryng-v2-api/', $transport->lastHeaders['User-Agent']);
     }
 
     public function testItOmitsTheAccountHeaderWhenNoneIsConfigured(): void
@@ -78,6 +90,16 @@ final class SpryngClientTest extends TestCase
             ->get('/messages');
 
         self::assertSame('https://sandbox.example.com/v2/messages', $transport->lastUrl);
+    }
+
+    public function testItTargetsMsgpitOverPlainHttpWithAPathPrefix(): void
+    {
+        $transport = FakeTransport::respondingWithJson([]);
+
+        (new SpryngClient('anything', transport: $transport, baseUrl: SpryngClient::MSGPIT_BASE_URL))
+            ->get('/messages');
+
+        self::assertSame('http://msgpit:8080/spryng/v2/messages', $transport->lastUrl);
     }
 
     public function testItRepeatsQueryKeysForArrayFilters(): void
@@ -215,5 +237,65 @@ final class SpryngClientTest extends TestCase
 
         self::assertSame($client->messages(), $client->messages());
         self::assertSame($client->contacts(), $client->contacts());
+    }
+
+    public function testItFallsBackToTheBaseUrlFromTheEnvironment(): void
+    {
+        putenv('SPRYNG_BASE_URL=' . SpryngClient::MSGPIT_BASE_URL . '/');
+        $transport = FakeTransport::respondingWithJson([]);
+
+        (new SpryngClient('anything', transport: $transport))->get('/messages');
+
+        self::assertSame('http://msgpit:8080/spryng/v2/messages', $transport->lastUrl);
+    }
+
+    public function testAnExplicitBaseUrlWinsOverTheEnvironment(): void
+    {
+        putenv('SPRYNG_BASE_URL=' . SpryngClient::MSGPIT_BASE_URL);
+        $transport = FakeTransport::respondingWithJson([]);
+
+        (new SpryngClient('secret-key', transport: $transport, baseUrl: SpryngClient::BASE_URL))->get('/messages');
+
+        self::assertSame('https://api.spryng.nl/v2/messages', $transport->lastUrl);
+    }
+
+    public function testItIgnoresAnEmptyBaseUrlInTheEnvironment(): void
+    {
+        $_ENV['SPRYNG_BASE_URL'] = '  ';
+        $transport = FakeTransport::respondingWithJson([]);
+
+        (new SpryngClient('secret-key', transport: $transport))->get('/messages');
+
+        self::assertSame('https://api.spryng.nl/v2/messages', $transport->lastUrl);
+    }
+
+    public function testItBuildsAClientFromTheEnvironment(): void
+    {
+        $_ENV['SPRYNG_API_KEY'] = 'env-key';
+        putenv('SPRYNG_ACCOUNT_REFERENCE=SPNL1234567');
+        putenv('SPRYNG_BASE_URL=' . SpryngClient::MSGPIT_BASE_URL);
+        $transport = FakeTransport::respondingWithJson([]);
+
+        SpryngClient::fromEnvironment($transport)->get('/balance');
+
+        self::assertSame('http://msgpit:8080/spryng/v2/balance', $transport->lastUrl);
+        self::assertSame('env-key', $transport->lastHeaders['X-Api-Key']);
+        self::assertSame('SPNL1234567', $transport->lastHeaders['AccountReference']);
+    }
+
+    public function testItRefusesToBuildFromAnEnvironmentWithoutAnApiKey(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('SPRYNG_API_KEY');
+
+        SpryngClient::fromEnvironment(FakeTransport::respondingWithJson([]));
+    }
+
+    private function clearEnvironment(): void
+    {
+        foreach (self::ENVIRONMENT as $name) {
+            putenv($name);
+            unset($_ENV[$name], $_SERVER[$name]);
+        }
     }
 }

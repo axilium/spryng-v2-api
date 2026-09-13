@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Http;
+namespace Axilium\SpryngV2\Http;
 
 /**
  * Immutable value object representing a raw HTTP response.

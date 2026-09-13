@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Resource;
+namespace Axilium\SpryngV2\Resource;
 
-use Acme\SpryngMessaging\Dto\Collection;
-use Acme\SpryngMessaging\Dto\Message;
-use Acme\SpryngMessaging\Dto\SendResult;
-use Acme\SpryngMessaging\Exception\SpryngException;
+use Axilium\SpryngV2\Dto\Collection;
+use Axilium\SpryngV2\Dto\Message;
+use Axilium\SpryngV2\Dto\SendResult;
+use Axilium\SpryngV2\Exception\SpryngException;
 use InvalidArgumentException;
 
 /**

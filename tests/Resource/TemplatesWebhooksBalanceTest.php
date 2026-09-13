@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests\Resource;
+namespace Axilium\SpryngV2\Tests\Resource;
 
-use Acme\SpryngMessaging\Enum\Channel;
-use Acme\SpryngMessaging\Enum\CharacterSet;
-use Acme\SpryngMessaging\Enum\MessageType;
-use Acme\SpryngMessaging\SpryngClient;
-use Acme\SpryngMessaging\Tests\Double\FakeTransport;
+use Axilium\SpryngV2\Enum\Channel;
+use Axilium\SpryngV2\Enum\CharacterSet;
+use Axilium\SpryngV2\Enum\MessageType;
+use Axilium\SpryngV2\SpryngClient;
+use Axilium\SpryngV2\Tests\Double\FakeTransport;
 use PHPUnit\Framework\TestCase;
 
 final class TemplatesWebhooksBalanceTest extends TestCase

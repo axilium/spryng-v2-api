@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2026-08-22
+## [1.0.0] - 2026-09-13
 
 First release. Written against the Spryng Messaging v2 API as documented on
 <https://developer.spryng.nl>.
@@ -42,6 +42,12 @@ First release. Written against the Spryng Messaging v2 API as documented on
 - `tools/smoke-test.php`, which holds the client against the live API with real
   credentials from a git-ignored `.env`. Read-only unless `--send` is passed.
   See `.env.example`.
+- `SpryngClient::MSGPIT_BASE_URL`, for pointing the client at a local
+  [msgpit](https://github.com/raymondsteffann/msgpit) instance that catches
+  messages instead of delivering them.
+- `SpryngClient::fromEnvironment()`, which reads `SPRYNG_API_KEY`,
+  `SPRYNG_ACCOUNT_REFERENCE` and `SPRYNG_BASE_URL`. The constructor falls back
+  to `SPRYNG_BASE_URL` when no base URL is passed.
 
 ### Notes
 

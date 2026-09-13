@@ -7,7 +7,7 @@ against; `docs/api/` is the mirrored documentation itself.
 ## Creating a client
 
 ```php
-use Acme\SpryngMessaging\SpryngClient;
+use Axilium\SpryngV2\SpryngClient;
 
 $client = new SpryngClient(
     apiKey:           getenv('SPRYNG_API_KEY'),
@@ -43,7 +43,7 @@ $client->balance();
 `Message::text()` covers the common case and parses the numbers for you:
 
 ```php
-use Acme\SpryngMessaging\Dto\Message;
+use Axilium\SpryngV2\Dto\Message;
 
 $result = $client->messages()->send(Message::text(
     ['+31612345678', '0031687654321'],
@@ -60,9 +60,9 @@ $result->count();
 The full constructor exposes everything the endpoint takes:
 
 ```php
-use Acme\SpryngMessaging\Dto\Recipient;
-use Acme\SpryngMessaging\Enum\CharacterSet;
-use Acme\SpryngMessaging\Enum\MessageType;
+use Axilium\SpryngV2\Dto\Recipient;
+use Axilium\SpryngV2\Enum\CharacterSet;
+use Axilium\SpryngV2\Enum\MessageType;
 
 $message = new Message(
     recipients:   [new Recipient('+31612345678', variables: ['name' => 'Ada'])],
@@ -216,8 +216,8 @@ group does not delete its members.
 ## Templates
 
 ```php
-use Acme\SpryngMessaging\Enum\CharacterSet;
-use Acme\SpryngMessaging\Enum\MessageType;
+use Axilium\SpryngV2\Enum\CharacterSet;
+use Axilium\SpryngV2\Enum\MessageType;
 
 $template = $client->templates()->create(
     name:         'Shift reminder',
@@ -366,10 +366,10 @@ Each returns the decoded response body.
 ## Errors
 
 ```php
-use Acme\SpryngMessaging\Exception\ApiException;
-use Acme\SpryngMessaging\Exception\RateLimitException;
-use Acme\SpryngMessaging\Exception\TransportException;
-use Acme\SpryngMessaging\Exception\ValidationException;
+use Axilium\SpryngV2\Exception\ApiException;
+use Axilium\SpryngV2\Exception\RateLimitException;
+use Axilium\SpryngV2\Exception\TransportException;
+use Axilium\SpryngV2\Exception\ValidationException;
 
 try {
     $client->messages()->send($message);
@@ -431,8 +431,8 @@ one only if you know it failed.
 ## Transports
 
 ```php
-use Acme\SpryngMessaging\Http\CurlTransport;
-use Acme\SpryngMessaging\Http\StreamTransport;
+use Axilium\SpryngV2\Http\CurlTransport;
+use Axilium\SpryngV2\Http\StreamTransport;
 
 new SpryngClient($key, $account, new CurlTransport(timeout: 30, connectTimeout: 10));
 new SpryngClient($key, $account, new StreamTransport(timeout: 30));
@@ -447,7 +447,7 @@ responses.
 `FakeTransport` records the outgoing request and replays a canned response:
 
 ```php
-use Acme\SpryngMessaging\Tests\Double\FakeTransport;
+use Axilium\SpryngV2\Tests\Double\FakeTransport;
 
 $transport = FakeTransport::respondingWithJson([
     'data' => ['requestId' => 'r-1', 'messageIds' => ['m-1']],
@@ -473,7 +473,7 @@ Symfony:
 
 ```yaml
 services:
-    Acme\SpryngMessaging\SpryngClient:
+    Axilium\SpryngV2\SpryngClient:
         arguments:
             $apiKey: '%env(SPRYNG_API_KEY)%'
             $accountReference: '%env(SPRYNG_ACCOUNT_REFERENCE)%'

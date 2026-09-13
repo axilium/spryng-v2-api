@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests\Resource;
+namespace Axilium\SpryngV2\Tests\Resource;
 
-use Acme\SpryngMessaging\Dto\Message;
-use Acme\SpryngMessaging\Dto\Recipient;
-use Acme\SpryngMessaging\Enum\MessageType;
-use Acme\SpryngMessaging\SpryngClient;
-use Acme\SpryngMessaging\Tests\Double\FakeTransport;
+use Axilium\SpryngV2\Dto\Message;
+use Axilium\SpryngV2\Dto\Recipient;
+use Axilium\SpryngV2\Enum\MessageType;
+use Axilium\SpryngV2\SpryngClient;
+use Axilium\SpryngV2\Tests\Double\FakeTransport;
 use DateTimeImmutable;
 use DateTimeZone;
 use PHPUnit\Framework\TestCase;

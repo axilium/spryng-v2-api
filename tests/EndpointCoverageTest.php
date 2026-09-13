@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests;
+namespace Axilium\SpryngV2\Tests;
 
 use PHPUnit\Framework\TestCase;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests\Double;
+namespace Axilium\SpryngV2\Tests\Double;
 
-use Acme\SpryngMessaging\Http\HttpResponse;
-use Acme\SpryngMessaging\Http\Transport;
+use Axilium\SpryngV2\Http\HttpResponse;
+use Axilium\SpryngV2\Http\Transport;
 use RuntimeException;
 
 /**

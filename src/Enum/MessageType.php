@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Enum;
+namespace Axilium\SpryngV2\Enum;
 
 /**
  * Traffic classification. Purely for reporting: it groups messages in the

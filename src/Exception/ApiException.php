@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Exception;
+namespace Axilium\SpryngV2\Exception;
 
 /**
  * The API answered, but with a non-2xx status.

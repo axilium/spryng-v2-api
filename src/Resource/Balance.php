@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Resource;
+namespace Axilium\SpryngV2\Resource;
 
-use Acme\SpryngMessaging\Exception\SpryngException;
+use Axilium\SpryngV2\Exception\SpryngException;
 
 /**
  * Prepaid balance, low-balance alerts and moving credit to sub-accounts.

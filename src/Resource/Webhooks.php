@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Resource;
+namespace Axilium\SpryngV2\Resource;
 
-use Acme\SpryngMessaging\Dto\Collection;
-use Acme\SpryngMessaging\Exception\SpryngException;
+use Axilium\SpryngV2\Dto\Collection;
+use Axilium\SpryngV2\Exception\SpryngException;
 
 /**
  * Webhook subscriptions: which events Spryng posts to which of your URLs, and

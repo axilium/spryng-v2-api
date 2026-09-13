@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Resource;
+namespace Axilium\SpryngV2\Resource;
 
-use Acme\SpryngMessaging\Dto\Collection;
-use Acme\SpryngMessaging\Enum\CharacterSet;
-use Acme\SpryngMessaging\Enum\MessageType;
-use Acme\SpryngMessaging\Exception\SpryngException;
+use Axilium\SpryngV2\Dto\Collection;
+use Axilium\SpryngV2\Enum\CharacterSet;
+use Axilium\SpryngV2\Enum\MessageType;
+use Axilium\SpryngV2\Exception\SpryngException;
 
 /**
  * Reusable message templates. Send one by passing its id as the templateId of

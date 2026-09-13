@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Dto;
+namespace Axilium\SpryngV2\Dto;
 
 use ArrayIterator;
 use Countable;

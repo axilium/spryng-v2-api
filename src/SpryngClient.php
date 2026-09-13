@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging;
+namespace Axilium\SpryngV2;
 
-use Acme\SpryngMessaging\Dto\Message;
-use Acme\SpryngMessaging\Exception\ApiError;
-use Acme\SpryngMessaging\Exception\ApiException;
-use Acme\SpryngMessaging\Exception\AuthenticationException;
-use Acme\SpryngMessaging\Exception\ConflictException;
-use Acme\SpryngMessaging\Exception\NotFoundException;
-use Acme\SpryngMessaging\Exception\RateLimitException;
-use Acme\SpryngMessaging\Exception\SpryngException;
-use Acme\SpryngMessaging\Exception\ValidationException;
-use Acme\SpryngMessaging\Http\CurlTransport;
-use Acme\SpryngMessaging\Http\HttpResponse;
-use Acme\SpryngMessaging\Http\Transport;
-use Acme\SpryngMessaging\Resource\Balance;
-use Acme\SpryngMessaging\Resource\Contacts;
-use Acme\SpryngMessaging\Resource\Groups;
-use Acme\SpryngMessaging\Resource\Messages;
-use Acme\SpryngMessaging\Resource\OptOuts;
-use Acme\SpryngMessaging\Resource\Schedules;
-use Acme\SpryngMessaging\Resource\Templates;
-use Acme\SpryngMessaging\Resource\ThrottleSchedules;
-use Acme\SpryngMessaging\Resource\Webhooks;
+use Axilium\SpryngV2\Dto\Message;
+use Axilium\SpryngV2\Exception\ApiError;
+use Axilium\SpryngV2\Exception\ApiException;
+use Axilium\SpryngV2\Exception\AuthenticationException;
+use Axilium\SpryngV2\Exception\ConflictException;
+use Axilium\SpryngV2\Exception\NotFoundException;
+use Axilium\SpryngV2\Exception\RateLimitException;
+use Axilium\SpryngV2\Exception\SpryngException;
+use Axilium\SpryngV2\Exception\ValidationException;
+use Axilium\SpryngV2\Http\CurlTransport;
+use Axilium\SpryngV2\Http\HttpResponse;
+use Axilium\SpryngV2\Http\Transport;
+use Axilium\SpryngV2\Resource\Balance;
+use Axilium\SpryngV2\Resource\Contacts;
+use Axilium\SpryngV2\Resource\Groups;
+use Axilium\SpryngV2\Resource\Messages;
+use Axilium\SpryngV2\Resource\OptOuts;
+use Axilium\SpryngV2\Resource\Schedules;
+use Axilium\SpryngV2\Resource\Templates;
+use Axilium\SpryngV2\Resource\ThrottleSchedules;
+use Axilium\SpryngV2\Resource\Webhooks;
 use BackedEnum;
 use DateTimeInterface;
 use InvalidArgumentException;
@@ -46,6 +46,14 @@ final class SpryngClient
     public const VERSION  = '1.0.0';
     public const BASE_URL = 'https://api.spryng.nl/v2';
 
+    /**
+     * msgpit, a local catcher that answers like Spryng but sends nothing. The
+     * hostname assumes msgpit runs as a Docker or Docksal service called "msgpit".
+     *
+     * @see https://github.com/raymondsteffann/msgpit
+     */
+    public const MSGPIT_BASE_URL = 'http://msgpit:8080/spryng/v2';
+
     private readonly Transport $transport;
     private readonly string $baseUrl;
 
@@ -64,6 +72,8 @@ final class SpryngClient
      * @param string|null $accountReference Your account, e.g. SPNL0000000. Most
      *        GET endpoints require it as a header and the send endpoint wants it
      *        in the body, so setting it here saves passing it on every call.
+     * @param string|null $baseUrl          Falls back to the SPRYNG_BASE_URL environment
+     *        variable, then to BASE_URL.
      */
     public function __construct(
         private readonly string $apiKey,
@@ -76,7 +86,39 @@ final class SpryngClient
         }
 
         $this->transport = $transport ?? new CurlTransport();
-        $this->baseUrl   = rtrim($baseUrl ?? self::BASE_URL, '/');
+        $this->baseUrl   = rtrim($baseUrl ?? self::environment('SPRYNG_BASE_URL') ?? self::BASE_URL, '/');
+    }
+
+    /**
+     * Builds a client from SPRYNG_API_KEY, SPRYNG_ACCOUNT_REFERENCE and
+     * SPRYNG_BASE_URL, so switching between Spryng and msgpit is configuration only.
+     *
+     * @throws InvalidArgumentException When SPRYNG_API_KEY is not set.
+     */
+    public static function fromEnvironment(?Transport $transport = null): self
+    {
+        $apiKey = self::environment('SPRYNG_API_KEY');
+
+        if ($apiKey === null) {
+            throw new InvalidArgumentException('The SPRYNG_API_KEY environment variable is not set.');
+        }
+
+        return new self($apiKey, self::environment('SPRYNG_ACCOUNT_REFERENCE'), $transport);
+    }
+
+    /**
+     * Checks $_ENV and $_SERVER as well as getenv(), because dotenv loaders do
+     * not always call putenv(). Empty values count as unset.
+     */
+    private static function environment(string $name): ?string
+    {
+        $value = $_ENV[$name] ?? $_SERVER[$name] ?? getenv($name);
+
+        if (!is_string($value) || trim($value) === '') {
+            return null;
+        }
+
+        return trim($value);
     }
 
     public function messages(): Messages
@@ -282,7 +324,7 @@ final class SpryngClient
         $headers = [
             'X-Api-Key'  => $this->apiKey,
             'Accept'     => 'application/json',
-            'User-Agent' => 'acme-spryng-messaging/' . self::VERSION . ' php/' . PHP_VERSION,
+            'User-Agent' => 'axilium-spryng-v2-api/' . self::VERSION . ' php/' . PHP_VERSION,
         ];
 
         if ($this->accountReference !== null) {

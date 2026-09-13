@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Exception;
+namespace Axilium\SpryngV2\Exception;
 
 /**
  * HTTP 409. The request collides with something that already exists, such as a

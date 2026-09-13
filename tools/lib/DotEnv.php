@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tools;
+namespace Axilium\SpryngV2\Tools;
 
 /**
  * Reads a .env file into the environment.

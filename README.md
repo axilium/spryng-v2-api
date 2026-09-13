@@ -12,15 +12,24 @@ Zero-dependency PHP client for the [Spryng Messaging v2 API](https://developer.s
 
 ## Installation
 
+The package is installed from GitHub, not from Packagist. Add the repository to
+your project's `composer.json` first:
+
+```json
+"repositories": [
+    { "type": "vcs", "url": "https://github.com/axilium/spryng-v2-api" }
+]
+```
+
 ```bash
-composer require acme/spryng-messaging
+composer require axilium/spryng-v2-api:^1.0
 ```
 
 ## Quick start
 
 ```php
-use Acme\SpryngMessaging\SpryngClient;
-use Acme\SpryngMessaging\Dto\Message;
+use Axilium\SpryngV2\SpryngClient;
+use Axilium\SpryngV2\Dto\Message;
 
 $client = new SpryngClient(getenv('SPRYNG_API_KEY'), 'SPNL0000000');
 
@@ -81,13 +90,13 @@ See [docs/USAGE.md](docs/USAGE.md) for each of them.
 ## Error handling
 
 ```php
-use Acme\SpryngMessaging\Exception\ApiException;
-use Acme\SpryngMessaging\Exception\AuthenticationException;
-use Acme\SpryngMessaging\Exception\ConflictException;
-use Acme\SpryngMessaging\Exception\NotFoundException;
-use Acme\SpryngMessaging\Exception\RateLimitException;
-use Acme\SpryngMessaging\Exception\TransportException;
-use Acme\SpryngMessaging\Exception\ValidationException;
+use Axilium\SpryngV2\Exception\ApiException;
+use Axilium\SpryngV2\Exception\AuthenticationException;
+use Axilium\SpryngV2\Exception\ConflictException;
+use Axilium\SpryngV2\Exception\NotFoundException;
+use Axilium\SpryngV2\Exception\RateLimitException;
+use Axilium\SpryngV2\Exception\TransportException;
+use Axilium\SpryngV2\Exception\ValidationException;
 
 try {
     $client->messages()->send($message);
@@ -119,10 +128,80 @@ $e->getErrors();       // list<ApiError>, each with ->code and ->message
 $e->getBody();         // the full decoded response
 ```
 
+## Testing against msgpit
+
+[msgpit](https://github.com/raymondsteffann/msgpit) catches outgoing SMS instead
+of delivering it. It answers like the Spryng API, stores every message and shows
+it in a web UI, so a development or CI environment can send without spending
+credits or reaching real phones.
+
+Point the client at it with the base URL:
+
+```php
+$client = new SpryngClient(
+    apiKey: 'anything',
+    accountReference: 'SPNL0000000',
+    baseUrl: SpryngClient::MSGPIT_BASE_URL,
+);
+```
+
+`MSGPIT_BASE_URL` is `http://msgpit:8080/spryng/v2`, which assumes msgpit runs
+as a Docker or Docksal service named `msgpit`. If yours runs somewhere else, pass
+its URL directly. msgpit accepts any non-empty API key.
+
+### Configuration through the environment
+
+In practice production and test should differ only in configuration. The client
+reads three environment variables, the same way msgpit reads its own:
+
+| Variable | Used by | |
+|---|---|---|
+| `SPRYNG_API_KEY` | `fromEnvironment()` | required |
+| `SPRYNG_ACCOUNT_REFERENCE` | `fromEnvironment()` | optional |
+| `SPRYNG_BASE_URL` | `fromEnvironment()` and the constructor | optional, defaults to `https://api.spryng.nl/v2` |
+
+```php
+$client = SpryngClient::fromEnvironment();
+```
+
+The constructor also falls back to `SPRYNG_BASE_URL` when you pass no `baseUrl`,
+so existing code picks it up without changes. An explicit `baseUrl` always wins.
+Variables are read from `$_ENV`, `$_SERVER` and `getenv()`; empty values count as
+unset.
+
+With Docksal, set the values in `.docksal/docksal.env`:
+
+```bash
+SPRYNG_API_KEY=anything
+SPRYNG_ACCOUNT_REFERENCE=SPNL0000000
+SPRYNG_BASE_URL=http://msgpit:8080/spryng/v2
+```
+
+Docksal does not hand those to your containers by itself. List them under
+`environment` on every service that runs PHP, in `.docksal/docksal.yml`:
+
+```yaml
+services:
+  cli:
+    environment:
+      - SPRYNG_API_KEY
+      - SPRYNG_ACCOUNT_REFERENCE
+      - SPRYNG_BASE_URL
+```
+
+Run `fin project restart` after changing either file.
+
+Leave `SPRYNG_BASE_URL` unset in production. Mind the reverse too: an
+environment that forgets to set it sends through the real API.
+
+msgpit implements the endpoints an application needs to send: `messages()->send()`,
+`balance()->get()` and the webhook calls. Contacts, groups, templates, schedules
+and the other resources are not emulated and will not answer as the real API does.
+
 ## Documentation
 
 - [docs/USAGE.md](docs/USAGE.md) - full API of the package, framework integration, retry patterns
-- [docs/PUBLISHING.md](docs/PUBLISHING.md) - how to release and publish this package on Packagist
+- [docs/PUBLISHING.md](docs/PUBLISHING.md) - how to release this package and install it from GitHub
 - [docs/API-NOTES.md](docs/API-NOTES.md) - how the Spryng v2 API works, and where this package still disagrees with it
 - [docs/openapi.yaml](docs/openapi.yaml) - OpenAPI 3.1 description of all 61 documented endpoints
 - [docs/api/](docs/api/) - a local mirror of <https://developer.spryng.nl>

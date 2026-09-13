@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Dto;
+namespace Axilium\SpryngV2\Dto;
 
-use Acme\SpryngMessaging\Enum\Channel;
-use Acme\SpryngMessaging\Enum\CharacterSet;
-use Acme\SpryngMessaging\Enum\MessageType;
+use Axilium\SpryngV2\Enum\Channel;
+use Axilium\SpryngV2\Enum\CharacterSet;
+use Axilium\SpryngV2\Enum\MessageType;
 use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;

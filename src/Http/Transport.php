@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Http;
+namespace Axilium\SpryngV2\Http;
 
-use Acme\SpryngMessaging\Exception\TransportException;
+use Axilium\SpryngV2\Exception\TransportException;
 
 /**
  * Minimal HTTP abstraction. Deliberately not PSR-18: this package has no

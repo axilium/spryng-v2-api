@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests\Dto;
+namespace Axilium\SpryngV2\Tests\Dto;
 
-use Acme\SpryngMessaging\Dto\Message;
-use Acme\SpryngMessaging\Dto\Recipient;
-use Acme\SpryngMessaging\Enum\CharacterSet;
-use Acme\SpryngMessaging\Enum\MessageType;
+use Axilium\SpryngV2\Dto\Message;
+use Axilium\SpryngV2\Dto\Recipient;
+use Axilium\SpryngV2\Enum\CharacterSet;
+use Axilium\SpryngV2\Enum\MessageType;
 use DateTimeImmutable;
 use DateTimeZone;
 use InvalidArgumentException;

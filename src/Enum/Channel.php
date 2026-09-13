@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Enum;
+namespace Axilium\SpryngV2\Enum;
 
 /**
  * Delivery channel. SMS is the only value the v2 documentation allows today.

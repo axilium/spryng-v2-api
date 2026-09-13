@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Acme\SpryngMessaging\Tests\Resource;
+namespace Axilium\SpryngV2\Tests\Resource;
 
-use Acme\SpryngMessaging\SpryngClient;
-use Acme\SpryngMessaging\Tests\Double\FakeTransport;
+use Axilium\SpryngV2\SpryngClient;
+use Axilium\SpryngV2\Tests\Double\FakeTransport;
 use PHPUnit\Framework\TestCase;
 
 final class ContactsAndGroupsTest extends TestCase
