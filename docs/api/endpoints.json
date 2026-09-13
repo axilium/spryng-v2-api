@@ -1,0 +1,307 @@
+[
+    {
+        "method": "GET",
+        "path": "/balance",
+        "operationId": "balance"
+    },
+    {
+        "method": "POST",
+        "path": "/balance-alerts",
+        "operationId": "balanceAlerts"
+    },
+    {
+        "method": "POST",
+        "path": "/contacts",
+        "operationId": "contactsCreate"
+    },
+    {
+        "method": "DELETE",
+        "path": "/contacts",
+        "operationId": "contactsDelete"
+    },
+    {
+        "method": "POST",
+        "path": "/contacts/bulk",
+        "operationId": "contactsBulkCreate"
+    },
+    {
+        "method": "PATCH",
+        "path": "/contacts/bulk",
+        "operationId": "contactsBulkCreateOrUpdate"
+    },
+    {
+        "method": "GET",
+        "path": "/contacts/filter",
+        "operationId": "contactsGetAll"
+    },
+    {
+        "method": "GET",
+        "path": "/contacts/{contactId}",
+        "operationId": "contactsGetById"
+    },
+    {
+        "method": "PUT",
+        "path": "/contacts/{contactId}",
+        "operationId": "contactsUpdate"
+    },
+    {
+        "method": "POST",
+        "path": "/groups",
+        "operationId": "groupsCreate"
+    },
+    {
+        "method": "DELETE",
+        "path": "/groups",
+        "operationId": "groupsDelete"
+    },
+    {
+        "method": "GET",
+        "path": "/groups",
+        "operationId": "groupsGetAll"
+    },
+    {
+        "method": "GET",
+        "path": "/groups/{groupId}",
+        "operationId": "groupsGetById"
+    },
+    {
+        "method": "PUT",
+        "path": "/groups/{groupId}",
+        "operationId": "groupsUpdate"
+    },
+    {
+        "method": "PUT",
+        "path": "/groups/{groupId}/contacts",
+        "operationId": "groupsAddContactsToGroup"
+    },
+    {
+        "method": "DELETE",
+        "path": "/groups/{groupId}/contacts",
+        "operationId": "groupsDeleteContactsFromGroup"
+    },
+    {
+        "method": "GET",
+        "path": "/groups/{groupId}/contacts",
+        "operationId": "groupsGetContactsFromGroup"
+    },
+    {
+        "method": "GET",
+        "path": "/inbox",
+        "operationId": "messagesGetInbox"
+    },
+    {
+        "method": "POST",
+        "path": "/messages",
+        "operationId": "messagesCreate"
+    },
+    {
+        "method": "GET",
+        "path": "/messages",
+        "operationId": "messagesGetAll"
+    },
+    {
+        "method": "GET",
+        "path": "/messages/{messageId}",
+        "operationId": "messagesGetById"
+    },
+    {
+        "method": "POST",
+        "path": "/optouts",
+        "operationId": "optoutsCreate"
+    },
+    {
+        "method": "DELETE",
+        "path": "/optouts",
+        "operationId": "optoutsDelete"
+    },
+    {
+        "method": "GET",
+        "path": "/optouts",
+        "operationId": "optoutsGetAll"
+    },
+    {
+        "method": "GET",
+        "path": "/requests",
+        "operationId": "requestsGetAll"
+    },
+    {
+        "method": "GET",
+        "path": "/requests/{requestId}",
+        "operationId": "requestsGetById"
+    },
+    {
+        "method": "GET",
+        "path": "/requests/{requestId}/messages",
+        "operationId": "requestsGetMessagesFromRequest"
+    },
+    {
+        "method": "POST",
+        "path": "/schedules/delayed",
+        "operationId": "scheduledMessagesCreate"
+    },
+    {
+        "method": "GET",
+        "path": "/schedules/delayed",
+        "operationId": "scheduledMessagesGetAll"
+    },
+    {
+        "method": "DELETE",
+        "path": "/schedules/delayed/{scheduleId}",
+        "operationId": "scheduledMessagesDelete"
+    },
+    {
+        "method": "GET",
+        "path": "/schedules/delayed/{scheduleId}",
+        "operationId": "scheduledMessagesGet"
+    },
+    {
+        "method": "PATCH",
+        "path": "/schedules/delayed/{scheduleId}",
+        "operationId": "scheduledMessagesUpdate"
+    },
+    {
+        "method": "POST",
+        "path": "/templates",
+        "operationId": "templatesCreate"
+    },
+    {
+        "method": "GET",
+        "path": "/templates",
+        "operationId": "templatesGetAll"
+    },
+    {
+        "method": "DELETE",
+        "path": "/templates/{templateId}",
+        "operationId": "templatesDelete"
+    },
+    {
+        "method": "GET",
+        "path": "/templates/{templateId}",
+        "operationId": "templatesGetById"
+    },
+    {
+        "method": "PUT",
+        "path": "/templates/{templateId}",
+        "operationId": "templatesUpdate"
+    },
+    {
+        "method": "POST",
+        "path": "/templates/{templateId}/copy",
+        "operationId": "templatesCopy"
+    },
+    {
+        "method": "PATCH",
+        "path": "/templates/{templateId}/lock",
+        "operationId": "templatesLock"
+    },
+    {
+        "method": "PATCH",
+        "path": "/templates/{templateId}/tags",
+        "operationId": "templatesUpdateTags"
+    },
+    {
+        "method": "PATCH",
+        "path": "/templates/{templateId}/unlock",
+        "operationId": "templatesUnlock"
+    },
+    {
+        "method": "POST",
+        "path": "/throttle-schedule",
+        "operationId": "scheduledThrottleCreate"
+    },
+    {
+        "method": "GET",
+        "path": "/throttle-schedule",
+        "operationId": "scheduledThrottleGetAll"
+    },
+    {
+        "method": "DELETE",
+        "path": "/throttle-schedule/{throttleScheduleId}",
+        "operationId": "scheduledThrottleDelete"
+    },
+    {
+        "method": "GET",
+        "path": "/throttle-schedule/{throttleScheduleId}",
+        "operationId": "scheduledThrottleGet"
+    },
+    {
+        "method": "PATCH",
+        "path": "/throttle-schedule/{throttleScheduleId}",
+        "operationId": "scheduledThrottleUpdate"
+    },
+    {
+        "method": "POST",
+        "path": "/throttle-schedule/{throttleScheduleId}/pause",
+        "operationId": "scheduledThrottlePause"
+    },
+    {
+        "method": "POST",
+        "path": "/throttle-schedule/{throttleScheduleId}/recipients",
+        "operationId": "scheduledThrottleAddRecipients"
+    },
+    {
+        "method": "POST",
+        "path": "/throttle-schedule/{throttleScheduleId}/resume",
+        "operationId": "scheduledThrottleResume"
+    },
+    {
+        "method": "GET",
+        "path": "/throttle-schedule/{throttlescheduleid}/unsent",
+        "operationId": "scheduledThrottleGetUnsent"
+    },
+    {
+        "method": "GET",
+        "path": "/url-shortener/visits",
+        "operationId": "shortenerGet"
+    },
+    {
+        "method": "GET",
+        "path": "/url-shortener/visits/{requestid}",
+        "operationId": "shortenerGetByRequestId"
+    },
+    {
+        "method": "POST",
+        "path": "/wallet/delegate",
+        "operationId": "walletDelegate"
+    },
+    {
+        "method": "GET",
+        "path": "/wallet/delegate",
+        "operationId": "walletDelegateMovement"
+    },
+    {
+        "method": "PUT",
+        "path": "/webhooks/authentication-methods",
+        "operationId": "webhooksUpdateAuthentication"
+    },
+    {
+        "method": "GET",
+        "path": "/webhooks/events",
+        "operationId": "webhooksGetEvents"
+    },
+    {
+        "method": "DELETE",
+        "path": "/webhooks/events/{eventType}",
+        "operationId": "webhooksDeleteEventSubscription"
+    },
+    {
+        "method": "GET",
+        "path": "/webhooks/events/{eventType}",
+        "operationId": "webhooksGetSubscriptions"
+    },
+    {
+        "method": "PUT",
+        "path": "/webhooks/events/{eventType}",
+        "operationId": "webhooksUpdateUrlsForEvent"
+    },
+    {
+        "method": "POST",
+        "path": "/webhooks/subscriptions",
+        "operationId": "webhooksCreateSubscription"
+    },
+    {
+        "method": "DELETE",
+        "path": "/webhooks/subscriptions",
+        "operationId": "webhooksDeleteSubscription"
+    }
+]

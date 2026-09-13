@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+## Install dependencies and get the project ready to work in.
+##
+## Usage: fin init
+
+set -euo pipefail
+
+fin project start
+fin exec composer install

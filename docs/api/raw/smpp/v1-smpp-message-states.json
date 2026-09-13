@@ -1,0 +1,18 @@
+{
+    "path": "v1-smpp-message-states",
+    "title": "Message states & error codes",
+    "content": "",
+    "codeSamples": [],
+    "sections": [
+        {
+            "fragment": "error-codes",
+            "title": "Error codes",
+            "content": "<table><thead><tr><th>Code</th><th>Description</th></tr></thead><br>    <tbody><tr><td>80</td><td>Insufficient balance</td></tr><tr><td>81</td><td>Daily message limit exceeded</td></tr><tr><td>82</td><td>Blocked destination address</td></tr><tr><td>83</td><td>No route available</td></tr><tr><td>84</td><td>Unrecognised address</td></tr><tr><td>85</td><td>Missing message part (multipart messages only)</td></tr><tr><td>94</td><td>Network submission error</td></tr><tr><td>95</td><td>Other network issue</td></tr><tr><td>97</td><td>Handset Incompatible</td></tr><tr><td>112</td><td>Temporary issue</td></tr><tr><td>113</td><td>Temporary Recipient issue (absent/error)</td></tr></tbody></table>"
+        },
+        {
+            "fragment": "message-states",
+            "title": "Message states",
+            "content": "The following is a list of allowable states for a short message.Intermediate states are states that can change. Final states are states that represent an end of life state for a message.<br><br>For example, a message in retry may return an ENROUTE state. At some point in the future, this message will either expire or be delivered. The state will then progress to EXPIRED or DELIVERED. Thus a message in ENROUTE state is said to be in an intermediate state.<br><br>A message in DELIVERED or EXPIRED state cannot progress to another state. These states are therefore final states.<br><table><thead><tr><th>Message state</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>ENROUTE or EN_ROUTE</td><td>Intermediate</td><td>The message is in enroute state. This is a general state used to describe a message as being active within the MC. The message may be in retry or dispatched to a mobile network for delivery to the mobile</td></tr><tr><td>DELIVERED</td><td>Final</td><td>Message is delivered to destination. The message has been delivered to the destination. No further deliveries will occur</td></tr><tr><td>EXPIRED</td><td>Final</td><td>Message validity period has expired. The message has failed to be delivered within its validity period and/or retry period. No further delivery attempts will be made</td></tr><tr><td>UNDELIVERABLE</td><td>Final</td><td>Message is undeliverable. The message has encountered a delivery error and is deemed permanently undeliverable. No further delivery attempts will be made. Certain network or MC internal errors result in the permanent non-delivery of a message. Examples of such errors would be an unknown subscriber or network error that indicated that the given destination mobile was denied SMS service or could not support SMS</td></tr></tbody></table>"
+        }
+    ]
+}

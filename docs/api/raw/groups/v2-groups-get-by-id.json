@@ -1,0 +1,53 @@
+{
+    "path": "v2-groups-get-by-id",
+    "title": "Get",
+    "content": "",
+    "codeSamples": [
+        {
+            "language": "Curl",
+            "code": "curl 'https://api.spryng.nl/v2/groups/{groupId}' -H 'X-Api-Key: {{your-key-here}}' "
+        },
+        {
+            "language": "NodeJS",
+            "code": "async function main() {\n  const axios = require('axios');\n\n  let url = \"https://api.spryng.nl/v2/groups/%7BgroupId%7D\";\n\n  const headers = {\n    \"X-Api-Key\": \"YOUR_KEY_HERE\"\n    };\n\n\n  try {\n    const response = await axios.get(\n        url,\n        { headers }\n    );\n\n    console.log(\"Response:\", response.data);\n  } catch (error) {\n    if (error.response) {\n      console.error(`Error: ${error.response.status}`);\n      console.error(\"Error details:\", error.response.data);\n    } else {\n      console.error(\"Error:\", error.message);\n    }\n  }\n}\n"
+        },
+        {
+            "language": "Python",
+            "code": "import requests\nfrom urllib.parse import urlencode\n\nheaders = {\n      'X-Api-Key': 'YOUR_KEY_HERE'\n    }\n\nbaseUrl = \"https://api.spryng.nl/v2/groups/%7BgroupId%7D\"\n\n\ntry:\n    response = requests.get( baseUrl, )\n        \n    if response.ok:\n            print(\"Success!\")\n            print(response.json())\n    else:\n        print(f\"Error! HTTP {response.status_code}\")\n        print(response.text)\n\nexcept requests.RequestException as e:\n    print(f\"Request failed: {e}\")\n\n"
+        },
+        {
+            "language": "Java",
+            "code": "import java.io.OutputStream;\nimport java.net.HttpURLConnection;\nimport java.net.URI;\nimport java.net.URL;\nimport java.net.URLEncoder;\nimport java.nio.charset.StandardCharsets;\nimport java.util.HashMap;\nimport java.util.Map;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        String baseUrl = \"https://api.spryng.nl/v2/groups/%7BgroupId%7D\";\n\n        URL url = URI.create(baseUrl).toURL();\n        HttpURLConnection connection = (HttpURLConnection) url.openConnection();\n        connection.setRequestMethod(\"GET\");\n\n        connection.setRequestProperty(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n        int responseCode = connection.getResponseCode();\n\n        if (responseCode >= 200 && responseCode < 300) {\n          try (var reader = new java.io.BufferedReader(\n            new java.io.InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {\n              StringBuilder response = new StringBuilder();\n              String line;\n\n              while ((line = reader.readLine()) != null) {\n                  response.append(line.trim());\n              }\n            }\n        }\n        else {\n          try (var errorReader = new java.io.BufferedReader(new java.io.InputStreamReader(connection.getErrorStream(), StandardCharsets.UTF_8))) {\n            StringBuilder errorResponse = new StringBuilder();\n            String line;\n\n            while ((line = errorReader.readLine()) != null) {\n                errorResponse.append(line.trim());\n            }\n\n            System.err.println(\"Error Response: \" + errorResponse.toString());\n          } catch (Exception e) {\n            System.err.println(\"Failed to read error response: \" + e.getMessage());\n          }\n        }\n\n        connection.disconnect();\n    }\n}\n"
+        },
+        {
+            "language": "C#",
+            "code": "using System.Text;\n\nnamespace ApiRequest;\nclass Program\n{\n    public async Task Main()\n    {\n        var httpClient = new HttpClient();\n        var url = \"https://api.spryng.nl/v2/groups/%7BgroupId%7D\";\n\n\n        var request = new HttpRequestMessage(HttpMethod.Parse(\"GET\"), url);\n\n        request.Headers.Add(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n\n        var response = await httpClient.SendAsync(request);\n\n        if(response.IsSuccessStatusCode)\n        {\n            var responseBody = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Response: \" + responseBody);\n        }\n        else\n        {\n            Console.WriteLine($\"Error: {response.StatusCode}\");\n            var errorContent = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Error details: \" + errorContent);\n        }\n    }\n}\n\n"
+        },
+        {
+            "language": "PHP",
+            "code": "<?php\n\n$baseUrl = 'https://api.spryng.nl/v2/groups/%7BgroupId%7D';\n$ch = curl_init();\ncurl_setopt($ch, CURLOPT_URL, $baseUrl);\n\n$headers = [\n     'X-Api-Key' => 'YOUR_KEY_HERE'\n    ];\n\ncurl_setopt($ch, CURLOPT_HTTPHEADER, $headers);\n\n\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n\n$response = curl_exec($ch);\n$info = curl_getinfo($ch);\n\ncurl_close($ch);\n\nif ($info['http_code'] >= 400) {\n    echo 'Error! HTTP code: ' . $info['http_code'] . ', Response: ' . $response;\n} else {\n    echo 'Success! Response: ' . $response;\n}\n?>\n\n"
+        }
+    ],
+    "sections": [
+        {
+            "fragment": "api-overview",
+            "title": "API overview",
+            "content": "This endpoint allows you to retrieve all data associated to a single group. This is the ideal tool for synchronizing your contact list from another system, such as a CRM, an e-commerce platform, or a customer database, ensuring your contacts are always up-to-date.<br><br>Before you start using this endpoint, please check you have your Account, API Key and Base URL set up and have familiarised yourself with our implementation prerequisites."
+        },
+        {
+            "fragment": "url-and-method",
+            "title": "URL & method",
+            "content": "<pre><code>https://api.spryng.nl/v2/groups/{groupId}</code></pre><br><strong>Method: GET</strong>"
+        },
+        {
+            "fragment": "headers",
+            "title": "Headers",
+            "content": "These parameters are mandatory to be provided in the header of your request. If not provided, or incorrect, your request will fail.<br><table><thead><tr><th>Header</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>X-Api-Key</td><td>String</td><td>API Key value for authorization</td></tr></tbody></table><br><strong>Example request header:</strong><br><pre><code>GET https://api.spryng.nl/v2/groups/{groupId}<br>-H 'Api-Key: YOUR_API_KEY'</code></pre>"
+        },
+        {
+            "fragment": "responses",
+            "title": "Responses",
+            "content": "The standard responses for this API are listed below. For a full list of possible REST API status codes, please refer to <a href=\"https://restfulapi.net/http-status-codes/\">this guide.</a><br><br><strong>Success</strong><br><pre><code>200 OK</code></pre>Success response.<br><pre><code>{<br>    \"data\": {<br>        \"groupId\": \"4d27b28b-48ce-40d1-8500-0751986ca623\",<br>        \"accountReference\": \"SPNL0000000\",<br>        \"name\": \"Octopus\",<br>        \"description\": \"A group description for test purpose\",<br>        \"contactsCount\": 0,<br>        \"lastUpdatedBy\": \"907da4a7-bb93-4772-8af4-a95cc59e5a91\",<br>        \"createTimestamp\": \"2024-11-26T08:36:54.578977Z\",<br>        \"lastUpdateTimestamp\": \"2024-11-26T08:36:54.578977Z\"<br>    }<br>}</code></pre><br><strong>Error codes</strong><br><pre><code>404 Not Found</code></pre>The server could not process the request due to an invalid or missing groupId.<br>Example response<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"group_not_found\",<br>            \"errorMessage\": \"There is no group with the specified Id.\"<br>        }<br>    ]<br>}</code></pre><br><pre><code>401 Unauthorized</code></pre>The server could not process the request due to a missing or incorrect authorization header.<br>Example response<br><pre><code>{<br>    \"title\": \"An error occurred while processing the request\",<br>    \"status\": 401,<br>    \"errors\": {},<br>    \"internalErrors\": [<br>        {<br>            \"message\": \"Pipeline\",<br>            \"metadata\": {<br>                \"unauthenticatedError\": \"Request for authenticated route '/v2/groups/4d27b28b-48ce-40i1-8500-0751986ca623' was unauthenticated\"<br>            }<br>        }<br>    ]<br>}</code></pre>"
+        }
+    ]
+}

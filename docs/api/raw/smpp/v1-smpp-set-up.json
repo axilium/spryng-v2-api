@@ -1,0 +1,18 @@
+{
+    "path": "v1-smpp-set-up",
+    "title": "Set up",
+    "content": "",
+    "codeSamples": [],
+    "sections": [
+        {
+            "fragment": "getting-started",
+            "title": "Getting started",
+            "content": "To use our SMPP API, you will first need an Spryng Account. Once you have an Account, our team will support you through your SMPP integration and set up.<br>You will need to let our team know how you’d like to secure your connection, via VPN or TLS 1.2, as well as the IP address(s) from which you’ll be connecting. They will then supply you with our endpoint address, port, your systemID and Password.<br>You will then be able to establish a connection through a bind and test sending a message.<br>Additional setup time may be necessary to register and configure your Account and connection according to regional requirements.<br><br><strong>Data encoding</strong><br>We support GSM 03.38 and Unicode (UCS2) encoded messages. Therefore the DCS field should be set to 0 or 1 for GSM or 8 for Unicode."
+        },
+        {
+            "fragment": "establishing-a-secure-connection",
+            "title": "Establishing a secure connection",
+            "content": "We only allow secure connections to Spryng’s SMPP service. This can be achieved in two ways:<ul><li>Create an SMPP connection that has been secured using TLS 1.2 or higher [recommended]</li><li>Request a VPN connection to our systems. Once established</li><li>unsecured SMPP communications can be passed via the secure VPN connection.</li></ul><br>Once our Technical Services have confirmed completion of the whitelisting (and creation of the VPN connection if applicable), you should be able test connectivity between your SMPP client and our SMPP API."
+        }
+    ]
+}

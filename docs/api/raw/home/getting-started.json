@@ -1,0 +1,43 @@
+{
+    "path": "getting-started",
+    "title": "Getting started",
+    "content": "",
+    "codeSamples": [],
+    "sections": [
+        {
+            "fragment": "authentication",
+            "title": "Authentication",
+            "content": "Spryng APIs use API Key access to authenticate requests. In order to use our APIs, you will need an Spryng account. To start a free trial, either click the <strong>\"Try for free\"</strong> in the top right of this website or contact the Spryng team. Once you have access to your account, you will be able to create, use and manage your API Key tokens and other settings via the <a href=\"https://app.Spryng.co.uk\">Spryng Portal.</a><br><br><strong>To create/access an API key:</strong><ol><li>Navigate to the <a href=\"https://app.Spryng.co.uk\">Spryng portal</a> in your browser</li><li>Log in using the credentials you created when you set up your account or sign up for a free trial account by clicking \"Try for free\"</li><li>Complete Multi-Factor authentication</li><li>Ensure you have been allocated Admin and Developer user status of the account - you’ll need this to access settings and the Developer Tools area</li><li>In the Spryng Portal navigate to the Developer Tools area via the side navigation. Ensure you have been allocated Developer access</li><li>Create new API key if required* - existing API Keys will be should be shown in a list</li><li>Retrieve your API Key and copy it into the request</li></ol>*For more information on how to create an API key, there is a <a href=\"https://www.youtube.com/watch?v=4wwL8M60FpE\">video guide here</a><br><br>While generating an API Key, an expiration date should be added for security best practice. If no expiration date is added, the API key will permanently exist until deleted or an expiration date is added.<br><br>API Keys can be independently revoked, so you have complete control of the lifecycle of your API credentials. For example, you might issue separate API Keys to different developers or different subsystems within your application. If a key is compromised or no longer used, you can delete it to prevent unauthorized access.<br><br>*Reminder: API credentials, including API key and account reference, need to be kept secure at all times. This means not sharing in any public areas or with anyone else, including in client code, in public forums or with other users. These credentials give authorization to use our products and therefore need to be protected."
+        },
+        {
+            "fragment": "base-url",
+            "title": "Base URL",
+            "content": "The API is served over HTTPS to ensure data privacy, unencrypted HTTP is not supported.<br><br>All API resources are using the following base url: <pre><code>https://api.spryng.nl</code></pre>"
+        },
+        {
+            "fragment": "prerequisites",
+            "title": "Prerequisites",
+            "content": "<strong> HTTPS</strong> <br>Our APIs are built on a RESTful endpoint structure and served using HTTPS to ensure data privacy; unencrypted HTTP is not supported.<br>If you use a popular web browser such as Chrome, Safari, Internet Explorer or Firefox and you update it when prompted, your connection should be secure and you should already be connecting via a secure TLS connection such as HTTPS.<br><br><strong>Programming Languages supported</strong><br>We support multiple programming languages, including C#, PHP, Python, Java and Node.js and use JSON-encoded responses with conventional HTTPS response codes.<br><br><strong>Multi-factor authentication</strong><br>Multi-factor authentication, sometimes referred to as 2 Factor Authentication (2FA), is an extra layer of security that, when triggered, will ask the user to provide additional information to verify who they are before they’re able to login to their account. You’ll need to use multi-factor authentication when you set up your account, and every time you log into the Spryng portal after this.<br>If you have an account in multiple territories (countries), you will need to set up MFA for each territory.<br><br>For more information on setting up MFA, please follow this <a href=\"https://support.Spryng.co.uk/article/sms/multi-factor-authentication\">guide</a>"
+        },
+        {
+            "fragment": "recipient-number-format",
+            "title": "Recipient number format",
+            "content": "The telephone number of the message recipient must be in <a href=\"https://en.wikipedia.org/wiki/MSISDN\">E.164 format</a>.This means any recipient number provided must be in the format:+{Country Dial Code}{Rest of phone number})<br><table><thead><tr><th>Phone Number</th><th>Country</th><th>Dial Code</th><th>E.164 Formatted Number</th></tr></thead><br>    <tbody><tr><td>0491570156</td><td>Australia</td><td>61</td><td>+61491570156</td></tr><tr><td>0123456789</td><td>France</td><td>33</td><td>+33123456789</td></tr><tr><td>15223433333</td><td>Germany</td><td>49</td><td>+4915223433333</td></tr><tr><td>3471234857</td><td>Italy</td><td>39</td><td>+393471234857</td></tr><tr><td>912345678</td><td>Spain</td><td>34</td><td>+34912345678</td></tr><tr><td>5417543010</td><td>USA</td><td>1</td><td>+15417543010</td></tr><tr><td>07948751633</td><td>UK</td><td>44</td><td>+447948751633</td></tr></tbody></table>"
+        },
+        {
+            "fragment": "ip-addresses",
+            "title": "IP addresses",
+            "content": "Our API platform is offered from a globally distributed infrastructure, so you won't be able to whitelist the IP addresses of our platform. Keep in mind that requests for delivery reports and inbound messages originate from various IP addresses. If you have a firewall in place, we recommend reviewing the inbound rules for your DNS."
+        },
+        {
+            "fragment": "rate-limiting",
+            "title": "Rate limiting",
+            "content": "Rate limiting restricts the number of API calls which can be made within a defined time period. Rate limiting acts as a basic security measure against malicious attacks, such as Denial-of-Service (DoS) attacks as well as ensuring an even flow of messages through the platform enabling the best performance possible.<br><br>If you hit our rate limit, you will receive a <strong>429 error response</strong><br><br>We currently have a default rate limit for all our public API endpoints. If the rate limit is reached, you will need to wait 5 seconds before doing another request. As the Spryng platform is cloud native, it can be scaled to handle higher throughput figures as required.<br><br>If you would like to know more details or request a change to your rate limit configuration, please contact our Sales team."
+        },
+        {
+            "fragment": "versioning",
+            "title": "Versioning",
+            "content": "The Spryng API includes the version being used in the URL<pre><code>POST https://api.Spryng.com/v2/messages</code></pre>When backwards-incompatible changes are made to the API, a new version is released.<br><br>Breaking changes include:<ul><li>A change in the format of the response data for one or more calls</li><li>A change in the request or response type - i.e. changing an Integer to a float</li><li>Removing any part of the API</li></ul>All breaking changes should result in a change of major version number."
+        }
+    ]
+}

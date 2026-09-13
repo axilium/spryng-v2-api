@@ -1,0 +1,63 @@
+{
+    "path": "v2-webhooks-update-urls-for-event",
+    "title": "Update URL",
+    "content": "",
+    "codeSamples": [
+        {
+            "language": "Curl",
+            "code": "curl -X PUT 'https://api.spryng.nl/v2/webhooks/events/{eventType}' -H 'X-Api-Key: {{your-key-here}}' -H 'AccountReference: {{your-AccountReference-header-here}}' -H 'Content-Type: application/json' -d '[\n  {\n    \"url\": \"url\",\n    \"platform\": \"platform\",\n    \"optionalNotes\": \"optionalNotes\"\n  }\n]' "
+        },
+        {
+            "language": "NodeJS",
+            "code": "async function main() {\n  const axios = require('axios');\n\n  let url = \"https://api.spryng.nl/v2/webhooks/events/%7BeventType%7D\";\n\n  const headers = {\n    \"AccountReference\": \"your-AccountReference-header-here\",\n    \"X-Api-Key\": \"YOUR_KEY_HERE\"\n    };\n\n\n  const body = `[\n  {\n    \"url\": \"url\",\n    \"platform\": \"platform\",\n    \"optionalNotes\": \"optionalNotes\"\n  }\n]`;\n    \n  try {\n    const response = await axios.put(\n        url,\n        body,\n        { headers }\n    );\n\n    console.log(\"Response:\", response.data);\n  } catch (error) {\n    if (error.response) {\n      console.error(`Error: ${error.response.status}`);\n      console.error(\"Error details:\", error.response.data);\n    } else {\n      console.error(\"Error:\", error.message);\n    }\n  }\n}\n"
+        },
+        {
+            "language": "Python",
+            "code": "import requests\nfrom urllib.parse import urlencode\n\nheaders = {\n      'AccountReference': 'your-AccountReference-header-here',\n      'X-Api-Key': 'YOUR_KEY_HERE'\n    }\n\nbaseUrl = \"https://api.spryng.nl/v2/webhooks/events/%7BeventType%7D\"\n\n\n\nbody = \"\"\"[\n  {\n    \"url\": \"url\",\n    \"platform\": \"platform\",\n    \"optionalNotes\": \"optionalNotes\"\n  }\n]\"\"\"\ntry:\n    response = requests.put( baseUrl,  headers = headers,  data = body)\n        \n    if response.ok:\n            print(\"Success!\")\n            print(response.json())\n    else:\n        print(f\"Error! HTTP {response.status_code}\")\n        print(response.text)\n\nexcept requests.RequestException as e:\n    print(f\"Request failed: {e}\")\n\n"
+        },
+        {
+            "language": "Java",
+            "code": "import java.io.OutputStream;\nimport java.net.HttpURLConnection;\nimport java.net.URI;\nimport java.net.URL;\nimport java.net.URLEncoder;\nimport java.nio.charset.StandardCharsets;\nimport java.util.HashMap;\nimport java.util.Map;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        String baseUrl = \"https://api.spryng.nl/v2/webhooks/events/%7BeventType%7D\";\n\n        URL url = URI.create(baseUrl).toURL();\n        HttpURLConnection connection = (HttpURLConnection) url.openConnection();\n        connection.setRequestMethod(\"PUT\");\n\n        connection.setRequestProperty(\"AccountReference\", \"your-AccountReference-header-here\");\n        \n        connection.setRequestProperty(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n        String body = \"\"\"\n        [\n  {\n    \"url\": \"url\",\n    \"platform\": \"platform\",\n    \"optionalNotes\": \"optionalNotes\"\n  }\n]\"\"\";\n\n        connection.setDoOutput(true);\n\n        try (OutputStream outputStream = connection.getOutputStream()) {\n            byte[] input = body.getBytes(StandardCharsets.UTF_8);\n            outputStream.write(input, 0, input.length);\n        }\n        catch (Exception e) {\n            System.err.println(\"Failed due to error: \" + e.getMessage());\n        }\n        \n        int responseCode = connection.getResponseCode();\n\n        if (responseCode >= 200 && responseCode < 300) {\n          try (var reader = new java.io.BufferedReader(\n            new java.io.InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {\n              StringBuilder response = new StringBuilder();\n              String line;\n\n              while ((line = reader.readLine()) != null) {\n                  response.append(line.trim());\n              }\n            }\n        }\n        else {\n          try (var errorReader = new java.io.BufferedReader(new java.io.InputStreamReader(connection.getErrorStream(), StandardCharsets.UTF_8))) {\n            StringBuilder errorResponse = new StringBuilder();\n            String line;\n\n            while ((line = errorReader.readLine()) != null) {\n                errorResponse.append(line.trim());\n            }\n\n            System.err.println(\"Error Response: \" + errorResponse.toString());\n          } catch (Exception e) {\n            System.err.println(\"Failed to read error response: \" + e.getMessage());\n          }\n        }\n\n        connection.disconnect();\n    }\n}\n"
+        },
+        {
+            "language": "C#",
+            "code": "using System.Text;\n\nnamespace ApiRequest;\nclass Program\n{\n    public async Task Main()\n    {\n        var httpClient = new HttpClient();\n        var url = \"https://api.spryng.nl/v2/webhooks/events/%7BeventType%7D\";\n\n\n        var request = new HttpRequestMessage(HttpMethod.Parse(\"PUT\"), url);\n\n        request.Headers.Add(\"AccountReference\", \"your-AccountReference-header-here\");\n        request.Headers.Add(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n\n        var body = @\"[\n  {\n    \"\"url\"\": \"\"url\"\",\n    \"\"platform\"\": \"\"platform\"\",\n    \"\"optionalNotes\"\": \"\"optionalNotes\"\"\n  }\n]\"; \n        \n        request.Content = new StringContent(body, Encoding.UTF8, \"application/json\");\n                \n        var response = await httpClient.SendAsync(request);\n\n        if(response.IsSuccessStatusCode)\n        {\n            var responseBody = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Response: \" + responseBody);\n        }\n        else\n        {\n            Console.WriteLine($\"Error: {response.StatusCode}\");\n            var errorContent = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Error details: \" + errorContent);\n        }\n    }\n}\n\n"
+        },
+        {
+            "language": "PHP",
+            "code": "<?php\n\n$baseUrl = 'https://api.spryng.nl/v2/webhooks/events/%7BeventType%7D';\n$ch = curl_init();\ncurl_setopt($ch, CURLOPT_URL, $baseUrl);\n\n$headers = [\n     'AccountReference' => 'your-AccountReference-header-here',\n     'X-Api-Key' => 'YOUR_KEY_HERE'\n    ];\n\ncurl_setopt($ch, CURLOPT_HTTPHEADER, $headers);\n\n\n    $body = json_encode([\n  [\n    \"url\" => \"url\",\n    \"platform\" => \"platform\",\n    \"optionalNotes\" => \"optionalNotes\"\n  ]\n]);\n        \ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n\n$response = curl_exec($ch);\n$info = curl_getinfo($ch);\n\ncurl_close($ch);\n\nif ($info['http_code'] >= 400) {\n    echo 'Error! HTTP code: ' . $info['http_code'] . ', Response: ' . $response;\n} else {\n    echo 'Success! Response: ' . $response;\n}\n?>\n\n"
+        }
+    ],
+    "sections": [
+        {
+            "fragment": "api-overview",
+            "title": "API overview",
+            "content": "This endpoint allows you to update or change the URL for the application which receives the event data from your webhook subscription. You can configure a different URL per event type if desired. <br>Note: the receiving service must be a publicly accessible web page or web service which you host."
+        },
+        {
+            "fragment": "url-and-method",
+            "title": "URL & method",
+            "content": "<strong>Endpoint URL</strong><pre><code>https://api.spryng.nl/v2/webhooks/events/{eventType}</code></pre><br><strong>Method: PUT</strong>"
+        },
+        {
+            "fragment": "headers-and-input-parameters",
+            "title": "Headers & input parameters",
+            "content": "These parameters are mandatory to be provided in the header of your request. If not provided, or incorrect, your request will fail.<br><table><thead><tr><th>Header</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>Content-Type</td><td>String</td><td>application/json</td></tr><tr><td>X-Api-Key</td><td>String</td><td>API Key value for authorization</td></tr><tr><td>AccountReference</td><td>String</td><td>Your Spryng account reference - e.g. SPNL0000000</td></tr></tbody></table><br><strong>Required input path parameters</strong><br><br>The below parameters are required within the path.<br><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>eventType</td><td>String</td><td>The eventId of the event where you'd like to change the receiving URL</td></tr></tbody></table><br><strong>Example request header</strong><br><pre><code>PUT https://api.spryng.nl/v2/webhooks/events/{eventType}<br>-H 'Api-Key: YOUR_API_KEY'<br>-H 'AccountReference: SPNL0000000'<br>-H 'Content-Type: application/json'</code></pre>"
+        },
+        {
+            "fragment": "headers",
+            "title": "Headers",
+            "content": "These parameters are mandatory to be provided in the header of your request. If not provided, or incorrect, your request will fail.<br><table><thead><tr><th>Header</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>Content-Type</td><td>String</td><td>application/json</td></tr><tr><td>X-Api-Key</td><td>String</td><td>API Key value for authorization</td></tr><tr><td>AccountReference</td><td>String</td><td>Your Esendex account reference - e.g. SPNL0000000</td></tr></tbody></table><br><strong>Required input path parameters</strong><br><br>The below parameters are required within the path.<br><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>eventType</td><td>String</td><td>The eventId of the event where you'd like to change the receiving URL</td></tr></tbody></table><br><strong>Example request header</strong><br><pre><code>PUT https://api.spryng.nl/v2/webhooks/events/{eventType}<br>-H 'Api-Key: YOUR_API_KEY'<br>-H 'AccountReference: SPNL0000000'<br>-H 'Content-Type: application/json'</code></pre>"
+        },
+        {
+            "fragment": "request-body",
+            "title": "Request body",
+            "content": "You can use the cURL sample provided on the right hand side of this page to directly copy/paste into your chosen integration tool, using the below properties to modify your request as required for your business needs.<br><br><strong>Required request body parameters</strong><br><br>If a required parameter is not provided, or incorrect, the request will fail. If a parameter is conditional, it is only required for certain channels or is dependent on the desired format of the message.<br><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>Parameter</td><td>String</td><td>Contains the new URL to be updated for the specified event updates to be received to</td></tr></tbody></table><br><br><strong>Request body example</strong><pre><code>{<br>  {<br>    \"url\": \"https://myurl.com\"<br>  }<br>}</code></pre>"
+        },
+        {
+            "fragment": "responses",
+            "title": "Responses",
+            "content": "The standard responses for this API are listed below. For a full list of possible REST API status codes, please refer to <a href=\"https://restfulapi.net/http-status-codes/\">this guide.</a><br><br><strong>Success</strong><br><pre><code>204 No Content</code></pre>The server has fulfilled the request to update the URL and does not need to return a response body. The server may return the updated meta information.<br><br><strong>Error codes</strong><br><pre><code>401 Unauthorized</code></pre>Indicates that the request has failed due to missing or incorrect authentication information. You can repeat the request with a suitable authorization header field.<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"unauthenticatedError\",<br>            \"errorMessage\": \"Request for authenticated route '/v2/webhooks/events/{eventType}' was unauthenticated\"<br>        }<br>    ]<br>}</code></pre><br><pre><code>404 Not Found</code></pre>The server can not find the requested resource. The eventType is either missing or incorrect.#<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"error_code\",<br>            \"errorMessage\": \"error_message\"<br>        }<br>    ]<br>}</code></pre>"
+        }
+    ]
+}

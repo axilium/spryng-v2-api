@@ -1,0 +1,16 @@
+* text=auto eol=lf
+
+# Kept in the repository, kept out of the release archive. Everything below is
+# for working on the package, not for using it, so it does not belong in the
+# tarball Packagist serves to consumers.
+/.docksal          export-ignore
+/.idea             export-ignore
+/.editorconfig     export-ignore
+/.env.example      export-ignore
+/.gitattributes    export-ignore
+/.github           export-ignore
+/CLAUDE.md         export-ignore
+/docs              export-ignore
+/phpunit.xml.dist  export-ignore
+/tests             export-ignore
+/tools             export-ignore

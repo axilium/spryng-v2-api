@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+## Run the test suite.
+##
+## Usage: fin test [phpunit arguments]
+
+set -euo pipefail
+
+fin exec vendor/bin/phpunit "$@"

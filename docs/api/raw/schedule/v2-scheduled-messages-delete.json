@@ -1,0 +1,53 @@
+{
+    "path": "v2-scheduled-messages-delete",
+    "title": "Delete",
+    "content": "",
+    "codeSamples": [
+        {
+            "language": "Curl",
+            "code": "curl -X DELETE 'https://api.spryng.nl/v2/schedules/delayed/{scheduleId}' -H 'X-Api-Key: {{your-key-here}}' -H 'AccountReference: {{your-AccountReference-header-here}}' "
+        },
+        {
+            "language": "NodeJS",
+            "code": "async function main() {\n  const axios = require('axios');\n\n  let url = \"https://api.spryng.nl/v2/schedules/delayed/%7BscheduleId%7D\";\n\n  const headers = {\n    \"AccountReference\": \"your-AccountReference-header-here\",\n    \"X-Api-Key\": \"YOUR_KEY_HERE\"\n    };\n\n\n  try {\n    const response = await axios.delete(\n        url,\n        { headers }\n    );\n\n    console.log(\"Response:\", response.data);\n  } catch (error) {\n    if (error.response) {\n      console.error(`Error: ${error.response.status}`);\n      console.error(\"Error details:\", error.response.data);\n    } else {\n      console.error(\"Error:\", error.message);\n    }\n  }\n}\n"
+        },
+        {
+            "language": "Python",
+            "code": "import requests\nfrom urllib.parse import urlencode\n\nheaders = {\n      'AccountReference': 'your-AccountReference-header-here',\n      'X-Api-Key': 'YOUR_KEY_HERE'\n    }\n\nbaseUrl = \"https://api.spryng.nl/v2/schedules/delayed/%7BscheduleId%7D\"\n\n\ntry:\n    response = requests.delete( baseUrl,  headers = headers )\n        \n    if response.ok:\n            print(\"Success!\")\n            print(response.json())\n    else:\n        print(f\"Error! HTTP {response.status_code}\")\n        print(response.text)\n\nexcept requests.RequestException as e:\n    print(f\"Request failed: {e}\")\n\n"
+        },
+        {
+            "language": "Java",
+            "code": "import java.io.OutputStream;\nimport java.net.HttpURLConnection;\nimport java.net.URI;\nimport java.net.URL;\nimport java.net.URLEncoder;\nimport java.nio.charset.StandardCharsets;\nimport java.util.HashMap;\nimport java.util.Map;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        String baseUrl = \"https://api.spryng.nl/v2/schedules/delayed/%7BscheduleId%7D\";\n\n        URL url = URI.create(baseUrl).toURL();\n        HttpURLConnection connection = (HttpURLConnection) url.openConnection();\n        connection.setRequestMethod(\"DELETE\");\n\n        connection.setRequestProperty(\"AccountReference\", \"your-AccountReference-header-here\");\n        \n        connection.setRequestProperty(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n        int responseCode = connection.getResponseCode();\n\n        if (responseCode >= 200 && responseCode < 300) {\n          try (var reader = new java.io.BufferedReader(\n            new java.io.InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {\n              StringBuilder response = new StringBuilder();\n              String line;\n\n              while ((line = reader.readLine()) != null) {\n                  response.append(line.trim());\n              }\n            }\n        }\n        else {\n          try (var errorReader = new java.io.BufferedReader(new java.io.InputStreamReader(connection.getErrorStream(), StandardCharsets.UTF_8))) {\n            StringBuilder errorResponse = new StringBuilder();\n            String line;\n\n            while ((line = errorReader.readLine()) != null) {\n                errorResponse.append(line.trim());\n            }\n\n            System.err.println(\"Error Response: \" + errorResponse.toString());\n          } catch (Exception e) {\n            System.err.println(\"Failed to read error response: \" + e.getMessage());\n          }\n        }\n\n        connection.disconnect();\n    }\n}\n"
+        },
+        {
+            "language": "C#",
+            "code": "using System.Text;\n\nnamespace ApiRequest;\nclass Program\n{\n    public async Task Main()\n    {\n        var httpClient = new HttpClient();\n        var url = \"https://api.spryng.nl/v2/schedules/delayed/%7BscheduleId%7D\";\n\n\n        var request = new HttpRequestMessage(HttpMethod.Parse(\"DELETE\"), url);\n\n        request.Headers.Add(\"AccountReference\", \"your-AccountReference-header-here\");\n        request.Headers.Add(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n\n        var response = await httpClient.SendAsync(request);\n\n        if(response.IsSuccessStatusCode)\n        {\n            var responseBody = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Response: \" + responseBody);\n        }\n        else\n        {\n            Console.WriteLine($\"Error: {response.StatusCode}\");\n            var errorContent = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Error details: \" + errorContent);\n        }\n    }\n}\n\n"
+        },
+        {
+            "language": "PHP",
+            "code": "<?php\n\n$baseUrl = 'https://api.spryng.nl/v2/schedules/delayed/%7BscheduleId%7D';\n$ch = curl_init();\ncurl_setopt($ch, CURLOPT_URL, $baseUrl);\n\n$headers = [\n     'AccountReference' => 'your-AccountReference-header-here',\n     'X-Api-Key' => 'YOUR_KEY_HERE'\n    ];\n\ncurl_setopt($ch, CURLOPT_HTTPHEADER, $headers);\n\n\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n\n$response = curl_exec($ch);\n$info = curl_getinfo($ch);\n\ncurl_close($ch);\n\nif ($info['http_code'] >= 400) {\n    echo 'Error! HTTP code: ' . $info['http_code'] . ', Response: ' . $response;\n} else {\n    echo 'Success! Response: ' . $response;\n}\n?>\n\n"
+        }
+    ],
+    "sections": [
+        {
+            "fragment": "api-overview",
+            "title": "API overview",
+            "content": "This endpoint allows you to cancel a message schedule in a single API call.<br>Before you start your implementation, please check you have your Account, API Key and Base URL set up and have familiarised yourself with our implementation prerequisites."
+        },
+        {
+            "fragment": "url-and-method",
+            "title": "URL & method",
+            "content": "<pre><code>https://api.spryng.nl/v2/schedules/delayed/{scheduleId}</code></pre><br><strong>Method: DELETE</strong><br>"
+        },
+        {
+            "fragment": "headers",
+            "title": "Headers",
+            "content": "These parameters are mandatory to be provided in the header of your request. If not provided, or incorrect, your request will fail.<br><table><thead><tr><th>Header</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>X-Api-Key</td><td>String</td><td>API Key value for authorization</td></tr><tr><td>AccountReference</td><td>String</td><td>Your Spryng account reference - e.g. SPNL0000000</td></tr></tbody></table><br><strong>Example request header:</strong><br><pre><code>DELETE https://api.spryng.nl/v2/schedules/delayed/{scheduleId}<br>-H 'Api-Key: YOUR_API_KEY' <br>-H 'AccountReference: SPNL0000000'</code></pre><br>The Id of the schedule you'd like to cancel must be provided as a GUID within the path. Note: The scheduleId is different to the requestId or messageId. If requestId or messageId are provided, the request will fail. You can get a list of all of your scheduleIds using the GET v2/schedules/delayed endpoint."
+        },
+        {
+            "fragment": "responses",
+            "title": "Responses",
+            "content": "The standard responses for this API are listed below. For a full list of possible REST API status codes, please refer to <a href=\"https://restfulapi.net/http-status-codes/\">this guide.</a><br><br><strong>Success</strong><br><pre><code>200 OK</code></pre>Success resonse.<br><pre><code>\"data\": {<br>    \"scheduleId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"<br>  }</code></pre><br><pre><code>404 Not Found</code></pre>The templatescheduleId provided doesn't exist or has an invalid format.<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"update_schedule_not_found\",<br>            \"errorMessage\": \"Schedule update request not found.\"<br>        }<br>    ]<br>}</code></pre><br><pre><code>401 Unauthorized</code></pre>The required authentication header is missing or invalid.<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"unauthenticatedError\",<br>            \"errorMessage\": \"Request for authenticated route '/v2/schedules/delayed/08657c0f-0d3b-48a3-bf8d-1d204c72f0dc' was unauthenticated\"<br>        }<br>    ]<br>}</code></pre>"
+        }
+    ]
+}

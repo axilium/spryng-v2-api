@@ -1,0 +1,8 @@
+
+services:
+  cli:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: cli
+    volumes:
+      - project_root:/var/www:${VOLUME_FLAGS_PROJECT_ROOT:-cached}

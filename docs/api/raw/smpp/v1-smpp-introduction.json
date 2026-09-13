@@ -1,0 +1,18 @@
+{
+    "path": "v1-smpp-introduction",
+    "title": "Introduction",
+    "content": "",
+    "codeSamples": [],
+    "sections": [
+        {
+            "fragment": "what-is-smpp",
+            "title": "What is SMPP",
+            "content": "SMPP (Short Message Peer-To-Peer) is an industry-standard protocol which provides an interface for the transfer of SMS messages over the Internet to people globally. It is designed for customers who have existing SMPP connections or who are looking to use software platforms that require an SMPP interface.<br><br>With our SMPP API you can send outbound and receive inbound messages across all supported SMS sender types, including; Standard, short code, long code and alphanumeric senderIds. We also support multiple encoding standards, such as; GSM and Unicode (UCS2). Delivery receipts (DLRs) are provided to ensure accurate message status updates in near real-time.<br><br>Our Spryng SMPP API is integrated directly with our platforms and services, which are ISO 27001 accredited and use the most secure communication protocols (TLS 1.2*), giving you peace of mind that your data is protected and compliant with highest standards allowing you to maintain trust and improve engagement with your customers. Our systems can manage multiple simultaneous SMPP connections (or binds) per Account, scaling dynamically as required to support demand, allowing you to send high volumes of messages without performance loss.<br><br>The below guide outlines how to establish a secure connection and configure your integration with the required SMPP settings.<br><br>*TLS 1.2 is our preferred connection protocol, however if you require connection via VPN this can be accommodated.<br><br>Please note, we currently support <a href=\"https://smpp.org/SMPP_v3_4_Issue1_2.pdf\">SMPP v3.4</a> only."
+        },
+        {
+            "fragment": "glossary",
+            "title": "Glossary",
+            "content": "<table><thead><tr><th>Term</th><th>Description</th></tr></thead><br>    <tbody><tr><td>SMPP</td><td>Short Message Peer-To-Peer protocol</td></tr><tr><td>PDU</td><td>Protocol Data Units</td></tr><tr><td>DLR</td><td>Delivery reports</td></tr><tr><td>Bind</td><td>A request to establish a session or connection for sending one-way or two-way messages</td></tr><tr><td>MC/SMCC</td><td>Message Centre/ SMS Gateway</td></tr><tr><td>ESME</td><td>External Short Message Entity</td></tr><tr><td>BIND_TRANSMITTER</td><td>You send messages on this bind and can opt to receive delivery notifications on another bind</td></tr><tr><td>BIND_RECEIVER</td><td>You receive delivery notifications on this bind</td></tr><tr><td>BIND_TRANSCEIVER</td><td>You both send messages and receive delivery notifications on this bind</td></tr><tr><td>UNBIND</td><td>You wish to close your bind to us</td></tr><tr><td>ENQUIRE_LINK</td><td>You want to ensure your bind stays connected</td></tr><tr><td>SUBMIT_SM</td><td>You are submitting a short message</td></tr><tr><td>DELIVER_SM</td><td>We are sending you a delivery notification or received message</td></tr></tbody></table>"
+        }
+    ]
+}

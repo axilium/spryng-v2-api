@@ -1,0 +1,1705 @@
+{
+    "version": "20260619-1",
+    "categories": [
+        {
+            "path": "home",
+            "title": "Set up",
+            "routes": [
+                {
+                    "path": "introduction",
+                    "title": "Introduction",
+                    "sections": [
+                        {
+                            "fragment": "why-our-apis",
+                            "title": "Why our APIs"
+                        },
+                        {
+                            "fragment": "what-are-apis",
+                            "title": "What are APIs"
+                        }
+                    ]
+                },
+                {
+                    "path": "getting-started",
+                    "title": "Getting started",
+                    "sections": [
+                        {
+                            "fragment": "authentication",
+                            "title": "Authentication"
+                        },
+                        {
+                            "fragment": "base-url",
+                            "title": "Base URL"
+                        },
+                        {
+                            "fragment": "prerequisites",
+                            "title": "Prerequisites"
+                        },
+                        {
+                            "fragment": "recipient-number-format",
+                            "title": "Recipient number format"
+                        },
+                        {
+                            "fragment": "ip-addresses",
+                            "title": "IP addresses"
+                        },
+                        {
+                            "fragment": "rate-limiting",
+                            "title": "Rate limiting"
+                        },
+                        {
+                            "fragment": "versioning",
+                            "title": "Versioning"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "messaging",
+            "title": "Messaging",
+            "routes": [
+                {
+                    "path": "v2-messages-create",
+                    "title": "Send",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-messages-get-inbox",
+                    "title": "Inbox",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-messages-get-by-id",
+                    "title": "Get by messageId",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-messages-get-all",
+                    "title": "Get all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-requests-get-messages-from-request",
+                    "title": "Get all by requestId",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-requests-get-by-id",
+                    "title": "Get by requestId",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-requests-get-all",
+                    "title": "Get all requests",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-shortener-get",
+                    "title": "Get URL metrics",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-shortener-get-by-request-id",
+                    "title": "Get all URL click metrics",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "contacts",
+            "title": "Contacts",
+            "routes": [
+                {
+                    "path": "v2-contacts-create",
+                    "title": "Create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-contacts-bulk-create",
+                    "title": "Bulk create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-contacts-update",
+                    "title": "Update",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-contacts-bulk-create-or-update",
+                    "title": "Bulk update/create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-contacts-delete",
+                    "title": "Delete",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-contacts-get-by-id",
+                    "title": "Get",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-contacts-get-all",
+                    "title": "Get all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "groups",
+            "title": "Groups",
+            "routes": [
+                {
+                    "path": "v2-groups-create",
+                    "title": "Create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-groups-get-by-id",
+                    "title": "Get",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-groups-get-all",
+                    "title": "Get all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-groups-update",
+                    "title": "Update",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-groups-delete",
+                    "title": "Delete",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-groups-add-contacts-to-group",
+                    "title": "Add contacts",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-groups-delete-contacts-from-group",
+                    "title": "Remove contacts",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-groups-get-contacts-from-group",
+                    "title": "Get contacts from Group",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "schedule",
+            "title": "Schedule",
+            "routes": [
+                {
+                    "path": "v2-scheduled-messages-create",
+                    "title": "Create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-messages-delete",
+                    "title": "Delete",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-messages-update",
+                    "title": "Update",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-messages-get",
+                    "title": "Get",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-messages-get-all",
+                    "title": "Get all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "throttling",
+            "title": "Throttling",
+            "routes": [
+                {
+                    "path": "v2-scheduled-throttle-create",
+                    "title": "Create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-get",
+                    "title": "Get",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "Api overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-get-all",
+                    "title": "Get all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "Api overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "required-headers",
+                            "title": "Required Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-get-unsent",
+                    "title": "Get unsent messages",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "Api overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-update",
+                    "title": "Edit",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "Api overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-delete",
+                    "title": "Delete",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "Api overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-pause",
+                    "title": "Pause",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "Api overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-resume",
+                    "title": "Resume",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API Overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-scheduled-throttle-add-recipients",
+                    "title": "Add recipients",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "Api overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "webhooks",
+            "title": "Webhooks",
+            "routes": [
+                {
+                    "path": "v2-webhooks-create-subscription",
+                    "title": "Create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "headers-and-input-parameters",
+                            "title": "Headers & input parameters"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "available-events",
+                            "title": "Available events"
+                        },
+                        {
+                            "fragment": "webhook-payloads",
+                            "title": "Webhook payloads"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-webhooks-update-urls-for-event",
+                    "title": "Update URL",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "headers-and-input-parameters",
+                            "title": "Headers & input parameters"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-webhooks-delete-event-subscription",
+                    "title": "Delete event",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-webhooks-delete-subscription",
+                    "title": "Delete all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-webhooks-get-subscriptions",
+                    "title": "Get webhooks for an account",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-webhooks-get-events",
+                    "title": "Get all events",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-webhooks-update-authentication",
+                    "title": "Authentication",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "oauth-verification-token",
+                            "title": "OAuth Verification Token"
+                        },
+                        {
+                            "fragment": "api-key-auth",
+                            "title": "API Key auth"
+                        },
+                        {
+                            "fragment": "basic-auth",
+                            "title": "Basic auth"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "opt-outs",
+            "title": "Opt outs",
+            "routes": [
+                {
+                    "path": "v2-optouts-create",
+                    "title": "Create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-optouts-delete",
+                    "title": "Delete",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-optouts-get-all",
+                    "title": "Get all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "templates",
+            "title": "Templates",
+            "routes": [
+                {
+                    "path": "v2-templates-create",
+                    "title": "Create",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-get-by-id",
+                    "title": "GET",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-get-all",
+                    "title": "GET all",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-update",
+                    "title": "Update",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-delete",
+                    "title": "Delete",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-lock",
+                    "title": "Lock",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-unlock",
+                    "title": "Unlock",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-update-tags",
+                    "title": "Change tags",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-templates-copy",
+                    "title": "Copy",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "balance",
+            "title": "Balance",
+            "routes": [
+                {
+                    "path": "v2-balance-alerts",
+                    "title": "Balance alert",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-balance",
+                    "title": "Get",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-wallet-delegate",
+                    "title": "Share",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "request-body",
+                            "title": "Request body"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                },
+                {
+                    "path": "v2-wallet-delegate-movement",
+                    "title": "Get Movement",
+                    "sections": [
+                        {
+                            "fragment": "api-overview",
+                            "title": "API overview"
+                        },
+                        {
+                            "fragment": "url-and-method",
+                            "title": "URL & method"
+                        },
+                        {
+                            "fragment": "headers-and-parameters",
+                            "title": "Headers & parameters"
+                        },
+                        {
+                            "fragment": "headers",
+                            "title": "Headers"
+                        },
+                        {
+                            "fragment": "responses",
+                            "title": "Responses"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "smpp",
+            "title": "SMPP",
+            "routes": [
+                {
+                    "path": "v1-smpp-introduction",
+                    "title": "Introduction",
+                    "sections": [
+                        {
+                            "fragment": "what-is-smpp",
+                            "title": "What is SMPP"
+                        },
+                        {
+                            "fragment": "glossary",
+                            "title": "Glossary"
+                        }
+                    ]
+                },
+                {
+                    "path": "v1-smpp-set-up",
+                    "title": "Set up",
+                    "sections": [
+                        {
+                            "fragment": "getting-started",
+                            "title": "Getting started"
+                        },
+                        {
+                            "fragment": "establishing-a-secure-connection",
+                            "title": "Establishing a secure connection"
+                        }
+                    ]
+                },
+                {
+                    "path": "v1-smpp-send-message",
+                    "title": "Sending a message",
+                    "sections": [
+                        {
+                            "fragment": "setting-up-a-bind",
+                            "title": "Setting up a bind"
+                        },
+                        {
+                            "fragment": "sending-a-bind-request",
+                            "title": "Sending a bind request"
+                        },
+                        {
+                            "fragment": "delivery-reports",
+                            "title": "Delivery reports"
+                        },
+                        {
+                            "fragment": "rate-limits",
+                            "title": "Rate limits"
+                        },
+                        {
+                            "fragment": "maintaining-connections",
+                            "title": "Maintaining connections"
+                        }
+                    ]
+                },
+                {
+                    "path": "v1-smpp-message-states",
+                    "title": "Message states & error codes",
+                    "sections": [
+                        {
+                            "fragment": "error-codes",
+                            "title": "Error codes"
+                        },
+                        {
+                            "fragment": "message-states",
+                            "title": "Message states"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "email-to-sms",
+            "title": "Email to SMS",
+            "routes": [
+                {
+                    "path": "getting-started",
+                    "title": "Getting started",
+                    "sections": [
+                        {
+                            "fragment": "introduction",
+                            "title": "Introduction"
+                        },
+                        {
+                            "fragment": "set-up",
+                            "title": "Set up"
+                        },
+                        {
+                            "fragment": "email-body",
+                            "title": "Email body"
+                        },
+                        {
+                            "fragment": "security",
+                            "title": "Security"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "path": "introduction",
+    "title": "Introduction",
+    "content": "",
+    "codeSamples": [],
+    "sections": [
+        {
+            "fragment": "why-our-apis",
+            "title": "Why our APIs",
+            "content": "<strong>Reliable, scalable, lightweight APIs brought to you from business messaging experts.</strong><br><br>At Spryng, we have more than 20 years of experience understanding complex business challenges and helping organisations find innovative ways to integrate customer messaging into their existing software.<br><br>From delivery notifications and appointment reminders to marketing alerts, we ensure streamlined communication to keep you and your customers/clients/users informed and engaged. We can boost the speed, quality and delivery of your services by helping you automate your messaging with our APIs, without the need to continuously log in to a new tool or train employees on additional software.<br><br>Our messaging APIs link your existing software to our relevant messaging gateway using a HTTPS request. This means that messages can easily be managed, automated, scheduled and optimised in the volumes required and converted to the correct format for the telecoms network(s) globally who then push the messages out to users.<br><br>Spryng is ISO 27001 accredited and supports compliance with GDPR so data is protected to the highest standards. This helps you to maintain trust and improve engagement with your customers."
+        },
+        {
+            "fragment": "what-are-apis",
+            "title": "What are APIs",
+            "content": "Our APIs are built on a REST (Representational State Transfer) API structure, or RESTful API. This is web-based, meaning the information is exchanged online. When you make a request with a REST API, you'll receive all of the data available from the API.<br><br>Each endpoint is comprised of:<br>1. An endpoint URL which consists of 2 parts:<ul><li>Base URL - this remains fixed e.g. https://api.spryng.nl</li><li>The endpoint path - this is where you can add configurable parameters which affect the response acting as filters for your search</li></ul>2. A HTTPS method<br>3. Headers<br>4. A body<br><br>At a high level, integrating with our APIs involves the below steps:<ol><li>Selecting the right APIs</li><li>Acquiring an API key</li><li>Making a HTTPS request to the API endpoint</li><li>Receiving the response</li><li>Processing the response</li></ol>"
+        }
+    ]
+}

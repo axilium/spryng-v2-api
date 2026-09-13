@@ -1,0 +1,53 @@
+{
+    "path": "v2-templates-get-by-id",
+    "title": "GET",
+    "content": "",
+    "codeSamples": [
+        {
+            "language": "Curl",
+            "code": "curl 'https://api.spryng.nl/v2/templates/{templateId}' -H 'X-Api-Key: {{your-key-here}}' -H 'AccountReference: {{your-AccountReference-header-here}}' "
+        },
+        {
+            "language": "NodeJS",
+            "code": "async function main() {\n  const axios = require('axios');\n\n  let url = \"https://api.spryng.nl/v2/templates/%7BtemplateId%7D\";\n\n  const headers = {\n    \"AccountReference\": \"your-AccountReference-header-here\",\n    \"X-Api-Key\": \"YOUR_KEY_HERE\"\n    };\n\n\n  try {\n    const response = await axios.get(\n        url,\n        { headers }\n    );\n\n    console.log(\"Response:\", response.data);\n  } catch (error) {\n    if (error.response) {\n      console.error(`Error: ${error.response.status}`);\n      console.error(\"Error details:\", error.response.data);\n    } else {\n      console.error(\"Error:\", error.message);\n    }\n  }\n}\n"
+        },
+        {
+            "language": "Python",
+            "code": "import requests\nfrom urllib.parse import urlencode\n\nheaders = {\n      'AccountReference': 'your-AccountReference-header-here',\n      'X-Api-Key': 'YOUR_KEY_HERE'\n    }\n\nbaseUrl = \"https://api.spryng.nl/v2/templates/%7BtemplateId%7D\"\n\n\ntry:\n    response = requests.get( baseUrl,  headers = headers )\n        \n    if response.ok:\n            print(\"Success!\")\n            print(response.json())\n    else:\n        print(f\"Error! HTTP {response.status_code}\")\n        print(response.text)\n\nexcept requests.RequestException as e:\n    print(f\"Request failed: {e}\")\n\n"
+        },
+        {
+            "language": "Java",
+            "code": "import java.io.OutputStream;\nimport java.net.HttpURLConnection;\nimport java.net.URI;\nimport java.net.URL;\nimport java.net.URLEncoder;\nimport java.nio.charset.StandardCharsets;\nimport java.util.HashMap;\nimport java.util.Map;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        String baseUrl = \"https://api.spryng.nl/v2/templates/%7BtemplateId%7D\";\n\n        URL url = URI.create(baseUrl).toURL();\n        HttpURLConnection connection = (HttpURLConnection) url.openConnection();\n        connection.setRequestMethod(\"GET\");\n\n        connection.setRequestProperty(\"AccountReference\", \"your-AccountReference-header-here\");\n        \n        connection.setRequestProperty(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n        int responseCode = connection.getResponseCode();\n\n        if (responseCode >= 200 && responseCode < 300) {\n          try (var reader = new java.io.BufferedReader(\n            new java.io.InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {\n              StringBuilder response = new StringBuilder();\n              String line;\n\n              while ((line = reader.readLine()) != null) {\n                  response.append(line.trim());\n              }\n            }\n        }\n        else {\n          try (var errorReader = new java.io.BufferedReader(new java.io.InputStreamReader(connection.getErrorStream(), StandardCharsets.UTF_8))) {\n            StringBuilder errorResponse = new StringBuilder();\n            String line;\n\n            while ((line = errorReader.readLine()) != null) {\n                errorResponse.append(line.trim());\n            }\n\n            System.err.println(\"Error Response: \" + errorResponse.toString());\n          } catch (Exception e) {\n            System.err.println(\"Failed to read error response: \" + e.getMessage());\n          }\n        }\n\n        connection.disconnect();\n    }\n}\n"
+        },
+        {
+            "language": "C#",
+            "code": "using System.Text;\n\nnamespace ApiRequest;\nclass Program\n{\n    public async Task Main()\n    {\n        var httpClient = new HttpClient();\n        var url = \"https://api.spryng.nl/v2/templates/%7BtemplateId%7D\";\n\n\n        var request = new HttpRequestMessage(HttpMethod.Parse(\"GET\"), url);\n\n        request.Headers.Add(\"AccountReference\", \"your-AccountReference-header-here\");\n        request.Headers.Add(\"X-Api-Key\", \"YOUR_KEY_HERE\");\n\n\n        var response = await httpClient.SendAsync(request);\n\n        if(response.IsSuccessStatusCode)\n        {\n            var responseBody = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Response: \" + responseBody);\n        }\n        else\n        {\n            Console.WriteLine($\"Error: {response.StatusCode}\");\n            var errorContent = await response.Content.ReadAsStringAsync();\n            Console.WriteLine(\"Error details: \" + errorContent);\n        }\n    }\n}\n\n"
+        },
+        {
+            "language": "PHP",
+            "code": "<?php\n\n$baseUrl = 'https://api.spryng.nl/v2/templates/%7BtemplateId%7D';\n$ch = curl_init();\ncurl_setopt($ch, CURLOPT_URL, $baseUrl);\n\n$headers = [\n     'AccountReference' => 'your-AccountReference-header-here',\n     'X-Api-Key' => 'YOUR_KEY_HERE'\n    ];\n\ncurl_setopt($ch, CURLOPT_HTTPHEADER, $headers);\n\n\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n\n$response = curl_exec($ch);\n$info = curl_getinfo($ch);\n\ncurl_close($ch);\n\nif ($info['http_code'] >= 400) {\n    echo 'Error! HTTP code: ' . $info['http_code'] . ', Response: ' . $response;\n} else {\n    echo 'Success! Response: ' . $response;\n}\n?>\n\n"
+        }
+    ],
+    "sections": [
+        {
+            "fragment": "api-overview",
+            "title": "API overview",
+            "content": "This endpoint allows you to retrieve data for a single template. Templates can be used to send consistent and personalised messages. TemplateIds can be embedded into the body of a request when sending or scheduling a message in the future.<br><br>Before you start using this endpoint, please check you have your Account, API Key and Base URL set up and have familiarised yourself with our implementation prerequisites."
+        },
+        {
+            "fragment": "url-and-method",
+            "title": "URL & method",
+            "content": "<strong>Endpoint URL</strong><pre><code>https://api.spryng.nl/v2/templates/{templateId}</code></pre><br><strong>Method: GET</strong>"
+        },
+        {
+            "fragment": "headers",
+            "title": "Headers",
+            "content": "These parameters are mandatory to be provided in the header of your request. If not provided, or incorrect, your request will fail.<br><table><thead><tr><th>Header</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>X-Api-Key</td><td>String</td><td>API Key value for authorization</td></tr><tr><td>AccountReference</td><td>String</td><td>Your Esendex account reference - e.g. SPNL0000000</td></tr></tbody></table><br><strong>Example request header:</strong><br><pre><code>GET https://api.spryng.nl/v2/templates/{templateId}<br>-H 'Api-Key: YOUR_API_KEY'<br>-H 'AccountReference: SPNL0000000'</code></pre>"
+        },
+        {
+            "fragment": "responses",
+            "title": "Responses",
+            "content": "The standard responses for this API are listed below. For a full list of possible REST API status codes, please refer to <a href=\"https://restfulapi.net/http-status-codes/\">this guide</a><br><br><strong>Success</strong><br><pre><code>200 OK</code></pre>Indicates that the request has succeeded.<br><pre><code>{<br>    \"data\": {<br>        \"id\": \"486c5ddf-e047-49bf-a5ed-b3e3555f8843\",<br>        \"createTimestamp\": \"2025-05-09T14:07:44.481065Z\",<br>        \"lastUpdateTimestamp\": \"2025-05-09T14:07:44.481065Z\",<br>        \"name\": \"Template_999\",<br>        \"content\": \"This is a template body\",<br>        \"accountReference\": \"SPNL0000000\",<br>        \"createdBy\": \"c1d60849-2774-4f29-ab21-7dbca5a30d5c\",<br>        \"lastUpdatedBy\": \"c1d60849-2774-4f29-ab21-7dbca5a30d5c\",<br>        \"type\": \"Text\",<br>        \"messageType\": \"MarketingAndResearch\",<br>        \"channelSettings\": [<br>            {<br>                \"channel\": \"Sms\",<br>                \"settings\": \"{\\\"CharacterSet\\\":\\\"Auto\\\"}\"<br>            }<br>        ],<br>        \"variables\": [],<br>        \"isLocked\": false,<br>        \"tags\": []<br>    }<br>}</code></pre><br><strong>Error codes</strong><br><pre><code>401 Unauthorized</code></pre>Indicates that the request has failed due to missing or incorrect authentication information. You can repeat the request with a suitable authorization header field<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"unauthenticatedError\",<br>            \"errorMessage\": \"Request for authenticated route '/v2/templates/486c5ddf-e047-49bf-a5ed-b3e3555f8843' was unauthenticated\"<br>        }<br>    ]<br>}</code></pre><br><pre><code>404 Not Found</code></pre>The server could not process the request due to an invalid or missing templateId<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"template_not_found\",<br>            \"errorMessage\": \"A template with the given id does not exist\"<br>        }<br>    ]<br>}</code></pre>"
+        }
+    ]
+}

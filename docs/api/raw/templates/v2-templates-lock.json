@@ -1,0 +1,28 @@
+{
+    "path": "v2-templates-lock",
+    "title": "Lock",
+    "content": "",
+    "codeSamples": [],
+    "sections": [
+        {
+            "fragment": "api-overview",
+            "title": "API overview",
+            "content": "This endpoint allows you to lock a single template to prevent editing. Templates can be used to send consistent and personalised messages. TemplateIds can be embedded into the body of a request when sending or scheduling a message in the future.<br><br>Before you start using this endpoint, please check you have your Account, API Key and Base URL set up and have familiarised yourself with our implementation prerequisites.<br><br>Please note. A Template user can only send messages using predefined templates, view the inbox and the sent items but will be unable to create, manage or delete templates or access any other settings and controls. For further information and configuration on user permissions, log into the Spryng portal and proceed to user permissions."
+        },
+        {
+            "fragment": "url-and-method",
+            "title": "URL & method",
+            "content": "<pre><code>https://api.spryng.nl/v2/templates/{templateId}/lock</code></pre><br><strong>Method: PATCH</strong>"
+        },
+        {
+            "fragment": "headers",
+            "title": "Headers",
+            "content": "These parameters are mandatory to be provided in the header of your request. If not provided, or incorrect, your request will fail.<br><table><thead><tr><th>Header</th><th>Type</th><th>Description</th></tr></thead><br>    <tbody><tr><td>X-Api-Key</td><td>String</td><td>API Key value for authorization</td></tr><tr><td>AccountReference</td><td>String</td><td>Your Spryng account reference - e.g. SPNL0000000</td></tr><tr><td>Content-Type</td><td>String</td><td>application/json</td></tr></tbody></table><br><strong>Example request header:</strong><br><pre><code>PATCH https://api.spryng.nl/v2/templates/{templateId}/lock<br>-H 'Api-Key: YOUR_API_KEY'<br>-H 'AccountReference: SPNL0000000'<br>-H 'Content-Type: application/json'</code></pre>"
+        },
+        {
+            "fragment": "responses",
+            "title": "Responses",
+            "content": "The standard responses for this API are listed below. For a full list of possible REST API status codes, please refer to <a href=\"https://restfulapi.net/http-status-codes/\">this guide</a>.<br><br><strong>Success</strong><br><pre><code>204 No Content</code></pre>There is no content to send for this request.<br><br><strong>Error codes</strong><br><pre><code>400 Bad request</code></pre>Indicates that one or more of the required fields are missing or have an invalid value.<br><pre><code>401 Unauthorized</code></pre>Indicates that the request has failed due to missing or incorrect authentication information. You can repeat the request with a suitable authorization header.<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"unauthenticatedError\",<br>            \"errorMessage\": \"Request for authenticated route '/v2/templates/486c5ddf-e047-49bf-a5ed-b3e3555f8845' was unauthenticated\"<br>        }<br>    ]<br>}</code></pre><br><pre><code>404 Not Found</code></pre>The server could not process the request due to an invalid or missing templateId.<br><pre><code>{<br>    \"errors\": [<br>        {<br>            \"errorCode\": \"template_not_found\",<br>            \"errorMessage\": \"A template with the given id does not exist\"<br>        }<br>    ]<br>}</code></pre>"
+        }
+    ]
+}

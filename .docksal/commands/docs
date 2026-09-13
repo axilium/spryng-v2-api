@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+## Refresh the documentation mirror and rebuild the OpenAPI specification.
+##
+## Pulls docs/api/ from the Spryng developer portal content API, then derives
+## docs/openapi.yaml from it and lints the result. Both are committed; re-run
+## after Spryng ships a new portal revision.
+##
+## Usage: fin docs
+
+set -euo pipefail
+
+fin exec php tools/fetch-docs.php
+fin exec php tools/build-openapi.php
+
+if command -v docker >/dev/null 2>&1; then
+	echo "Linting docs/openapi.yaml..."
+	docker run --rm -v "${PWD}":/spec redocly/cli lint docs/openapi.yaml
+else
+	echo "Skipping the lint: docker is not available."
+fi
