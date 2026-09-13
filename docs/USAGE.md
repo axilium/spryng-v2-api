@@ -306,6 +306,7 @@ $client->webhooks()->subscribeUrl(
     contactEmail:           'ops@example.com',
 );
 
+$client->webhooks()->subscriptions();                 // every event type at once
 $client->webhooks()->subscriptionsFor('MessageDelivered');
 $client->webhooks()->updateUrls('MessageDelivered', ['https://example.com/hooks/v2']);
 $client->webhooks()->updateAuthentication([

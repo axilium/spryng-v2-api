@@ -77,6 +77,20 @@ final class Webhooks extends AbstractResource
     }
 
     /**
+     * Every subscription on the account, across all event types.
+     *
+     * GET /webhooks/subscriptions is missing from the portal documentation,
+     * but the API serves it: the rows come back under data.events, each with
+     * eventType, callbacks and requiresAuthentication.
+     *
+     * @throws SpryngException
+     */
+    public function subscriptions(): Collection
+    {
+        return $this->collection($this->client->get('/webhooks/subscriptions'));
+    }
+
+    /**
      * The subscriptions registered for one event type.
      *
      * @return array<string, mixed>

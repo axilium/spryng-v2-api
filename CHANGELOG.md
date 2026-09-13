@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-13
+
+### Added
+
+- `Webhooks::subscriptions()`, which lists every subscription on the account
+  through `GET /webhooks/subscriptions`. The portal does not document that
+  endpoint, so `EndpointCoverageTest` never asked for it.
+
 ## [1.0.0] - 2026-09-13
 
 First release. Written against the Spryng Messaging v2 API as documented on

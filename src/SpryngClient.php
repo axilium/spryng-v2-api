@@ -43,7 +43,7 @@ use JsonException;
  */
 final class SpryngClient
 {
-    public const VERSION  = '1.0.0';
+    public const VERSION  = '1.1.0';
     public const BASE_URL = 'https://api.spryng.nl/v2';
 
     /**

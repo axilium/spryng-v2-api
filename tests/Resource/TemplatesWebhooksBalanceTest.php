@@ -89,6 +89,23 @@ final class TemplatesWebhooksBalanceTest extends TestCase
         ]], $transport->decodedRequestBody());
     }
 
+    public function testItListsEverySubscriptionOnTheAccount(): void
+    {
+        $subscription = [
+            'eventType'              => 'message-delivered',
+            'callbacks'              => [['url' => 'https://example.com/hooks/spryng']],
+            'requiresAuthentication' => true,
+        ];
+        $transport = FakeTransport::respondingWithJson(['data' => ['events' => [$subscription]]]);
+
+        $subscriptions = (new SpryngClient('secret-key', 'SPNL0000000', $transport))->webhooks()->subscriptions();
+
+        self::assertSame('GET', $transport->lastMethod);
+        self::assertSame('/v2/webhooks/subscriptions', $transport->lastPath());
+        self::assertNull($transport->lastBody);
+        self::assertSame([$subscription], $subscriptions->all());
+    }
+
     public function testItManagesWebhookSubscriptions(): void
     {
         $transport = FakeTransport::respondingWithJson(['data' => ['events' => []]]);
