@@ -130,7 +130,7 @@ $e->getBody();         // the full decoded response
 
 ## Testing against msgpit
 
-[msgpit](https://github.com/raymondsteffann/msgpit) catches outgoing SMS instead
+[msgpit](https://github.com/axilium/msgpit) catches outgoing SMS instead
 of delivering it. It answers like the Spryng API, stores every message and shows
 it in a web UI, so a development or CI environment can send without spending
 credits or reaching real phones.

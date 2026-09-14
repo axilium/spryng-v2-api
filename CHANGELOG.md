@@ -51,7 +51,7 @@ First release. Written against the Spryng Messaging v2 API as documented on
   credentials from a git-ignored `.env`. Read-only unless `--send` is passed.
   See `.env.example`.
 - `SpryngClient::MSGPIT_BASE_URL`, for pointing the client at a local
-  [msgpit](https://github.com/raymondsteffann/msgpit) instance that catches
+  [msgpit](https://github.com/axilium/msgpit) instance that catches
   messages instead of delivering them.
 - `SpryngClient::fromEnvironment()`, which reads `SPRYNG_API_KEY`,
   `SPRYNG_ACCOUNT_REFERENCE` and `SPRYNG_BASE_URL`. The constructor falls back

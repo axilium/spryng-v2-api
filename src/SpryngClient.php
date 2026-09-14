@@ -50,7 +50,7 @@ final class SpryngClient
      * msgpit, a local catcher that answers like Spryng but sends nothing. The
      * hostname assumes msgpit runs as a Docker or Docksal service called "msgpit".
      *
-     * @see https://github.com/raymondsteffann/msgpit
+     * @see https://github.com/axilium/msgpit
      */
     public const MSGPIT_BASE_URL = 'http://msgpit:8080/spryng/v2';
 
